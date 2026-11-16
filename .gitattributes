@@ -1,0 +1,4 @@
+# Pastikan Linguist GitHub menghitung semua bahasa di repo ini
+*.html linguist-detectable=true
+*.css linguist-detectable=true
+*.js linguist-detectable=true
