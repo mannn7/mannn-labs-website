@@ -1,4 +1,5 @@
 # Mannn Labs — Website
+Bahasa: HTML, CSS, dan JavaScript — dipisah per file.
 
 Salinan website Mannn Labs (PT Mannn Labs Teknologi) — HTML, CSS, dan JavaScript dipisah per file.
 
