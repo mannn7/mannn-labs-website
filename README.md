@@ -1,13 +1,24 @@
 # Mannn Labs — Website
 
-Salinan website Mannn Labs (PT Mannn Labs Teknologi) — kode HTML statis, siap deploy.
+Salinan website Mannn Labs (PT Mannn Labs Teknologi) — HTML, CSS, dan JavaScript dipisah per file.
 
-## File
+## Struktur
 
-| File | Dipakai di |
-| --- | --- |
-| `website-toko-api-ai.html` | `mannnlabs.com` — halaman profil/portofolio (upload sebagai `index.html`) |
-| `mannn-labs-ai.html` | `ai.mannnlabs.com` — halaman penjualan API key (upload sebagai `index.html`) |
+| Folder | Dipakai di | Isi |
+| --- | --- | --- |
+| `mannnlabs-com/` | `mannnlabs.com` — halaman profil/portofolio | `index.html` + `styles.css` + `script.js` |
+| `ai-mannnlabs-com/` | `ai.mannnlabs.com` — halaman penjualan API key | `index.html` + `styles.css` + `script.js` |
+
+- `index.html` — struktur halaman (termasuk gambar paus DeepSeek yang inline base64)
+- `styles.css` — semua tampilan (warna, layout, responsif)
+- `script.js` — semua interaktivitas (toggle bahasa ID/EN, FAQ, Playground, animasi ketik)
+
+## Deploy
+
+Upload **isi folder** ke hosting (bukan foldernya):
+
+- Isi `mannnlabs-com/` → folder domain `mannnlabs.com`
+- Isi `ai-mannnlabs-com/` → folder subdomain `ai.mannnlabs.com`
 
 ## Live
 
@@ -16,6 +27,6 @@ Salinan website Mannn Labs (PT Mannn Labs Teknologi) — kode HTML statis, siap 
 
 ## Catatan
 
-- Kedua file sudah mandiri (self-contained, aset inline) — cukup upload sebagai `index.html` ke folder masing-masing di hosting.
 - Link antar-halaman sudah memakai domain asli (`mannnlabs.com` ↔ `ai.mannnlabs.com`).
 - Harga, model (DeepSeek + Claude), dan isi halaman mengikuti versi live 14 Nov 2026.
+- Versi 1 file (HTML mandiri) sebelumnya sudah diganti struktur pisah ini pada 16 Nov 2026.
