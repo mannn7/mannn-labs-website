@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<link rel="icon" href="data:,">
+<title>Mannn Labs AI — Beli API Key DeepSeek &amp; Claude</title>
+<meta name="description" content="Halaman penjualan Mannn Labs: API key DeepSeek dan Claude dengan format OpenAI, bayar via QRIS, harga terbuka sejak awal."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070910; --surface:#0d111d; --surface2:#101522; --panel:#0a0e1a;
+  --violet:#8d54ff; --violet2:#a685ff; --violetDeep:#7c3aed; --cyan:#22d3ee; --cyan2:#53eafd;
+  --green:#00d294; --pink:#e879f9;
+  --text:#ffffff; --muted:#cbd5e1; --muted2:#94a3b8;
+  --border:rgba(255,255,255,.09); --border2:rgba(255,255,255,.08);
+  --shadow:0 24px 60px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Instrument Sans",system-ui,sans-serif;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{min-height:44px;font-family:inherit}
+img,svg{max-width:100%}
+::selection{background:rgba(141,84,255,.45)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px}
+.mono{font-family:"JetBrains Mono",monospace}
+
+.cosmos{position:fixed;inset:0;z-index:-3;background:
+ radial-gradient(620px 420px at 12% -4%, rgba(76,29,149,.55), transparent 60%),
+ radial-gradient(720px 520px at 92% 6%, rgba(8,145,178,.32), transparent 60%),
+ radial-gradient(560px 520px at 50% 96%, rgba(141,84,255,.16), transparent 60%), var(--bg)}
+.gridbg{position:fixed;inset:0;z-index:-2;background-image:linear-gradient(rgba(255,255,255,.032) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.032) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,black 30%,transparent 75%);mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,black 30%,transparent 75%);pointer-events:none}
+.stars{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(1px 1px at 10% 20%,#fff,transparent),radial-gradient(1.5px 1.5px at 30% 60%,#a685ff,transparent),radial-gradient(1px 1px at 70% 15%,#53eafd,transparent),radial-gradient(1px 1px at 85% 45%,#fff,transparent),radial-gradient(1.2px 1.2px at 55% 80%,#fff,transparent),radial-gradient(1px 1px at 20% 85%,#53eafd,transparent);opacity:.65}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px;min-width:0}
+
+header{position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(7,9,16,.78);border-bottom:1px solid var(--border2);transition:box-shadow .25s ease,background .25s ease}
+header.scrolled{background:rgba(7,9,16,.92);box-shadow:0 12px 32px rgba(0,0,0,.45)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em;font-size:20px;min-width:0}
+.navLeft{display:flex;align-items:center;gap:12px;min-width:0}
+.backArrow{width:40px;height:40px;flex:0 0 40px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.05);display:grid;place-items:center;font-size:19px;font-weight:700;color:#fff;line-height:1}
+.logo small{display:block;font-size:10.5px;letter-spacing:.14em;color:var(--muted2);font-family:"JetBrains Mono",monospace;font-weight:500;white-space:nowrap}
+.navlinks{display:flex;gap:4px;flex-wrap:wrap}
+.navlinks a{padding:10px 13px;border-radius:999px;font-size:14px;color:var(--muted);transition:.18s}
+.navlinks a:hover{background:rgba(255,255,255,.06);color:#fff}
+.navRight{display:flex;align-items:center;gap:10px}
+.langToggle{display:inline-flex;background:rgba(255,255,255,.06);border:1px solid var(--border);padding:3px;border-radius:999px;gap:2px}
+.langToggle button{border:0;background:transparent;color:var(--muted2);padding:7px 13px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px;min-height:36px;min-width:44px;text-align:center;font-family:"JetBrains Mono",monospace;transition:.18s;touch-action:manipulation;-webkit-tap-highlight-color:transparent;position:relative;z-index:1;pointer-events:auto}
+.langToggle button.active{background:#fff;color:#0f172a}
+.menuBtn{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.05);color:#fff;cursor:pointer;place-items:center}
+.mobileMenu{display:none;border-top:1px solid var(--border2);padding:10px 0 16px}
+.mobileMenu.open{display:block}
+.mobileMenu a{display:block;padding:12px 6px;font-weight:600;color:var(--muted);border-bottom:1px dashed rgba(255,255,255,.07)}
+.mobileMenu a:last-child{border-bottom:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid transparent;cursor:pointer;transition:filter .18s,transform .18s,background .18s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btnPrimary{background:linear-gradient(135deg,var(--violet),var(--violetDeep));color:#fff;box-shadow:0 10px 30px rgba(141,84,255,.32)}
+.btnPrimary:hover{filter:brightness(1.12)}
+.btnGhost{background:rgba(255,255,255,.05);border-color:var(--border);color:#fff}
+.btnGhost:hover{background:rgba(255,255,255,.1)}
+.btnCyan{background:var(--cyan);color:#07303c}
+.btnCyan:hover{filter:brightness(1.08)}
+.copyBtn{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:7px 13px;font-size:13px;font-weight:700;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.05);color:#fff;cursor:pointer;transition:.18s;flex:0 0 auto}
+.copyBtn:hover{background:rgba(255,255,255,.12)}
+.copyBtn.copied{background:rgba(0,210,148,.18);border-color:rgba(0,210,148,.5);color:#86efac}
+.copyBtn svg{width:14px;height:14px;flex:0 0 14px}
+
+.hero{padding:54px 0 30px;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:start}
+.hero>div{min-width:0}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan2);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dot{width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(0,210,148,.15);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 5px rgba(0,210,148,.16)}50%{box-shadow:0 0 0 9px rgba(0,210,148,.05)}}
+h1{font-size:clamp(38px,5.6vw,62px);line-height:.98;letter-spacing:-.04em;margin:18px 0;font-weight:800}
+.grad{background:linear-gradient(90deg,var(--violet2),var(--pink),var(--cyan2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:18px;line-height:1.7;max-width:560px;margin:0}
+.heroCtas{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 18px}
+.heroMeta{display:flex;gap:10px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:8px 13px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.04);color:var(--muted)}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex:0 0 7px}
+.pill:nth-child(2) i{background:var(--violet2)} .pill:nth-child(3) i{background:var(--green)} .pill:nth-child(4) i{background:var(--pink)}
+.heroNote{color:var(--muted2);font-size:12px;margin:14px 0 0}
+
+.codeCard{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.codeHead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px 12px 18px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.28)}
+.codeHead .dots{display:flex;gap:7px;align-items:center}
+.codeHead .dots span{width:11px;height:11px;border-radius:50%}
+.codeHead b{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:500;color:var(--muted);margin-right:auto;margin-left:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.codeBody{padding:18px;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.8;color:#dbe7f5;overflow-x:auto}
+.codeBody pre{margin:0;font-family:inherit;white-space:pre}
+.tok-c{color:#94a3b8;font-style:italic}.tok-cmd{color:#c4b5fd;font-weight:700}.tok-url{color:#53eafd}.tok-flag{color:#a685ff;font-weight:600}.tok-s{color:#67e8f9}.tok-key{color:#f8fafc;font-weight:600}.tok-str{color:#5eead4}.tok-var{color:#f0abfc;font-weight:600}
+.typeCursor{display:inline-block;width:8px;height:1.05em;background:var(--cyan2);vertical-align:text-bottom;margin-left:2px;border-radius:1px;animation:cursorBlink 1.05s steps(1) infinite}
+@keyframes cursorBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.modelRow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.miniCard{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:16px}
+.miniCard h4{margin:0 0 4px;font-size:15px}
+.miniCard p{margin:0;color:var(--muted2);font-size:13px;line-height:1.55}
+.miniCard .rate{margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--cyan2)}
+.statusOn{color:var(--green);font-size:12px;font-family:"JetBrains Mono",monospace;white-space:nowrap}
+
+section{padding:54px 0}
+.secHead{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px;flex-wrap:wrap}
+.secLabel{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;color:var(--violet2);text-transform:uppercase}
+h2{font-size:clamp(28px,4vw,40px);line-height:1.06;letter-spacing:-.03em;margin:8px 0 0}
+.secDesc{color:var(--muted2);max-width:520px;font-size:15px;margin:0}
+.reveal{opacity:0;filter:blur(10px);transform:translateY(18px);transition:opacity .7s ease,filter .7s ease,transform .7s ease}
+.reveal.in{opacity:1;filter:blur(0);transform:none}
+.reveal.d1{transition-delay:.06s}.reveal.d2{transition-delay:.12s}.reveal.d3{transition-delay:.18s}
+
+.card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--border);border-radius:26px;padding:26px}
+.card h3{margin:0 0 8px;font-size:22px;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:15px}
+.tag{display:inline-flex;padding:6px 11px;border-radius:999px;background:rgba(141,84,255,.15);border:1px solid rgba(141,84,255,.35);color:#ddd6fe;font-size:11.5px;font-family:"JetBrains Mono",monospace;letter-spacing:.08em}
+.tagCyan{background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.3);color:#a5f3fc}
+.feat{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.feat li{display:flex;gap:10px;color:var(--muted);font-size:14px;align-items:flex-start}
+.feat li::before{content:"✓";width:22px;height:22px;flex:0 0 22px;display:grid;place-items:center;border-radius:50%;background:rgba(0,210,148,.15);color:var(--green);font-size:12px;font-weight:800;margin-top:1px}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabBtn{padding:11px 18px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:#fff;cursor:pointer;font-weight:700;font-size:14px;transition:.18s;min-height:44px}
+.tabBtn:hover{background:rgba(255,255,255,.09)}
+.tabBtn.active{background:var(--violet);border-color:var(--violet)}
+.specGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.spec{background:var(--panel);border:1px solid var(--border2);border-radius:18px;padding:16px;min-width:0}
+.spec span{display:block;font-size:11.5px;color:var(--muted2);font-family:"JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.spec b{font-size:17px;letter-spacing:-.01em}
+.modelMeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.modelMeta .tag{overflow-wrap:anywhere}
+.modelCols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px;padding-top:20px;border-top:1px solid var(--border2)}
+.modelCol h4{margin:0;font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet2)}
+.modelCol .feat{margin-top:12px}
+.useList{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+.useList li{display:flex;gap:10px;color:var(--muted);font-size:14px;align-items:flex-start}
+.useList li::before{content:"→";color:var(--cyan2);font-weight:800;flex:0 0 auto}
+@media(max-width:700px){ .modelCols{grid-template-columns:1fr} }
+
+.toggle{display:inline-flex;background:rgba(255,255,255,.06);border:1px solid var(--border);padding:4px;border-radius:999px;gap:4px;max-width:100%;flex-wrap:wrap}
+.toggle button{border:0;background:transparent;color:var(--muted);padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700;font-size:14px;transition:.18s}
+.toggle button.active{background:#fff;color:#0f172a}
+.priceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.priceGrid[hidden]{display:none}
+.priceCard{background:var(--surface);border:1px solid var(--border);border-radius:26px;padding:26px;position:relative;display:flex;flex-direction:column}
+.priceCard .feat{flex:1}
+.priceCard.pop{background:linear-gradient(180deg,rgba(141,84,255,.2),rgba(16,21,34,.92));border-color:rgba(141,84,255,.5)}
+.price{font-size:37px;font-weight:800;letter-spacing:-.03em;margin:12px 0 2px}
+.perLabel{color:var(--muted2);font-size:13.5px}
+.priceNoteLine{color:var(--muted2);font-size:13.5px;margin:16px 0 0;line-height:1.65}
+.priceGroup{margin-top:28px}
+.priceGroup:first-of-type{margin-top:8px}
+.priceGroupHead{display:flex;justify-content:space-between;gap:16px;align-items:end;flex-wrap:wrap;margin-bottom:6px}
+.priceGroupHead h3{font-size:22px;margin:0;letter-spacing:-.02em}
+.priceGroupHead p{color:var(--muted2);font-size:14px;margin:4px 0 0}
+.priceGroupTag{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.14em;color:var(--cyan2);text-transform:uppercase}
+.deepseekGrid{grid-template-columns:1fr;max-width:560px}
+.deepseekGrid .priceCard{padding:28px}
+.ruleBox{margin-top:16px;background:rgba(141,84,255,.08);border:1px solid rgba(141,84,255,.28);border-radius:18px;padding:16px 18px;color:var(--muted);font-size:14px;line-height:1.65}
+.ruleBox b{color:#fff}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:var(--surface2);border:1px solid var(--border);border-radius:24px;padding:24px}
+.stepNum{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.14em;color:var(--cyan2);display:flex;align-items:center;gap:10px}
+.stepNum b{width:38px;height:38px;flex:0 0 38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--violet),var(--violetDeep));color:#fff;font-size:16px;letter-spacing:0;box-shadow:0 8px 22px rgba(141,84,255,.35)}
+.step h3{margin:14px 0 8px;font-size:20px;letter-spacing:-.01em}
+.step p{color:var(--muted2);font-size:14.5px;margin:0}
+.step p a{color:var(--cyan2);font-weight:700;overflow-wrap:anywhere}
+.step p a:hover{text-decoration:underline}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.split>article{min-width:0}
+.shieldRow{display:flex;gap:12px;align-items:flex-start;margin-top:16px}
+.shieldRow:first-of-type{margin-top:6px}
+.shieldIco{width:40px;height:40px;flex:0 0 40px;border-radius:12px;display:grid;place-items:center;background:rgba(0,210,148,.13);color:var(--green)}
+.shieldIco.cy{background:rgba(34,211,238,.12);color:var(--cyan2)}
+.shieldIco svg{width:20px;height:20px}
+.shieldRow h4{margin:2px 0 4px;font-size:15.5px}
+.shieldRow p{margin:0;color:var(--muted2);font-size:14px}
+
+.faqList{display:grid;gap:10px}
+.faqItem{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:border-color .2s}
+.faqItem.open{border-color:rgba(141,84,255,.5)}
+.faqQ{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:transparent;border:0;color:#fff;font-weight:700;font-size:15.5px;text-align:left;padding:18px 20px;cursor:pointer}
+.faqQ .chev{width:30px;height:30px;flex:0 0 30px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;transition:transform .3s ease,background .3s}
+.faqQ .chev svg{width:14px;height:14px}
+.faqItem.open .chev{transform:rotate(180deg);background:rgba(141,84,255,.25)}
+.faqA{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faqA p{color:var(--muted2);margin:0;padding:0 20px 18px;font-size:14.5px;max-width:760px}
+.faqA p a{color:var(--cyan2);font-weight:700}
+.faqA p a:hover{text-decoration:underline}
+
+.buyWrap{text-align:center;max-width:860px;margin:0 auto}
+.buyLabel{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.22em;color:var(--muted2);text-transform:uppercase;margin-bottom:22px}
+.buyCard{background:linear-gradient(180deg,#101527,#0b0f1c);border:1px solid var(--border);border-radius:32px;padding:64px 32px 56px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.buyCard h2{font-size:clamp(30px,4.6vw,46px);line-height:1.15;letter-spacing:-.03em;margin:0}
+.buyCard h2 .accent{background:linear-gradient(90deg,var(--violet2),var(--pink),var(--cyan2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.buyCard p{color:var(--muted2);max-width:520px;margin:18px auto 0;font-size:15.5px}
+.buyBtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.buyBtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;border-radius:999px;background:linear-gradient(135deg,var(--violet),var(--violetDeep));color:#fff;font-weight:700;font-size:16px;box-shadow:0 12px 32px rgba(141,84,255,.35);transition:.2s;max-width:100%;overflow-wrap:anywhere}
+.buyBtn:hover{filter:brightness(1.12)}
+.buyBtn svg{width:18px;height:18px;flex:0 0 18px}
+.buyGhost{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:#fff;font-weight:700;font-size:16px;transition:.2s}
+.buyGhost:hover{background:rgba(255,255,255,.1)}
+
+a,button{cursor:pointer}
+.backArrow{transition:transform .25s ease,background .25s ease,border-color .25s ease,color .25s ease}
+.backArrow:hover{transform:translateX(-3px);background:rgba(141,84,255,.22);border-color:rgba(141,84,255,.55);color:var(--cyan2)}
+.logo{transition:color .25s ease}
+.logo:hover{color:var(--cyan2)}
+.navlinks a{position:relative;transition:color .25s ease,background .25s ease}
+.navlinks a::after{content:"";position:absolute;left:13px;right:13px;bottom:6px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--violet2),var(--cyan2));transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.navlinks a:hover::after{transform:scaleX(1)}
+.mobileMenu a{transition:color .25s ease,padding-left .25s ease}
+.mobileMenu a:hover{color:#fff;padding-left:12px}
+.langToggle button{transition:color .25s ease,background .25s ease}
+.langToggle button:hover{color:#fff}
+.langToggle button.active:hover{color:#0f172a}
+.menuBtn{transition:background .25s ease,border-color .25s ease,transform .25s ease}
+.menuBtn:hover{background:rgba(141,84,255,.25);border-color:rgba(141,84,255,.55);transform:scale(1.05)}
+.btn{transition:transform .25s ease,box-shadow .25s ease,filter .25s ease,background .25s ease,border-color .25s ease}
+.btnPrimary:hover{transform:scale(1.04);box-shadow:0 16px 42px rgba(141,84,255,.6);filter:brightness(1.1)}
+.btnGhost:hover{transform:scale(1.04);border-color:rgba(34,211,238,.55);box-shadow:0 12px 30px rgba(34,211,238,.2)}
+.btnCyan:hover{transform:scale(1.04);box-shadow:0 14px 34px rgba(34,211,238,.45)}
+.copyBtn{transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease,color .25s ease}
+.copyBtn:hover{transform:scale(1.06);border-color:rgba(34,211,238,.6);box-shadow:0 8px 20px rgba(34,211,238,.28)}
+.pill{transition:transform .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease}
+.pill:hover{transform:translateY(-2px);border-color:rgba(141,84,255,.55);color:#fff;box-shadow:0 8px 20px rgba(141,84,255,.18)}
+.codeCard{transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease}
+.codeCard:hover{border-color:rgba(34,211,238,.45);box-shadow:0 28px 70px rgba(34,211,238,.12),var(--shadow);transform:translateY(-3px)}
+.miniCard{transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.miniCard:hover{transform:translateY(-4px);border-color:rgba(141,84,255,.55);box-shadow:0 18px 40px rgba(141,84,255,.16)}
+.card{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.card:hover{transform:translateY(-5px);border-color:rgba(141,84,255,.55);box-shadow:0 26px 60px rgba(141,84,255,.18)}
+.spec{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.spec:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.5);box-shadow:0 12px 26px rgba(34,211,238,.12)}
+.tabBtn{transition:transform .25s ease,background .25s ease,border-color .25s ease,box-shadow .25s ease}
+.tabBtn:hover{transform:scale(1.04);border-color:rgba(141,84,255,.6);box-shadow:0 10px 24px rgba(141,84,255,.22)}
+.toggle button{transition:color .25s ease,background .25s ease,transform .25s ease}
+.toggle button:hover{color:#fff;transform:scale(1.03)}
+.toggle button.active:hover{color:#0f172a}
+.priceCard{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.priceCard:hover{transform:translateY(-6px) scale(1.01);border-color:rgba(141,84,255,.65);box-shadow:0 28px 64px rgba(141,84,255,.24)}
+.priceCard.pop:hover{box-shadow:0 28px 72px rgba(232,121,249,.28)}
+.step{transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.step:hover{transform:translateY(-5px);border-color:rgba(141,84,255,.55);box-shadow:0 22px 46px rgba(141,84,255,.18)}
+.faqItem{transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease}
+.faqItem:hover{border-color:rgba(141,84,255,.55);box-shadow:0 14px 32px rgba(141,84,255,.15)}
+.faqQ{transition:color .25s ease}
+.faqQ:hover{color:var(--cyan2)}
+.faqQ:hover .chev{border-color:rgba(34,211,238,.6);background:rgba(34,211,238,.15);transform:scale(1.1)}
+.faqItem.open .faqQ:hover .chev{transform:rotate(180deg) scale(1.1)}
+.buyCard{transition:border-color .3s ease,box-shadow .3s ease}
+.buyCard:hover{border-color:rgba(141,84,255,.5);box-shadow:0 34px 90px rgba(141,84,255,.22)}
+.buyBtn{transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.buyBtn:hover{transform:scale(1.04);box-shadow:0 18px 46px rgba(141,84,255,.6);filter:brightness(1.1)}
+.buyGhost{transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease}
+.buyGhost:hover{transform:scale(1.04);border-color:rgba(34,211,238,.55);box-shadow:0 12px 30px rgba(34,211,238,.2)}
+.footRow span,.footRow a{transition:color .25s ease}
+.footRow a:hover{color:#fff}
+
+footer{padding:28px 0 42px;border-top:1px solid var(--border2);color:var(--muted2);font-size:13px}
+.footRow{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.footRow a{color:var(--muted);font-weight:600}
+
+@media(max-width:1020px){ .navlinks{display:none} .menuBtn{display:grid} }
+@media(max-width:900px){
+ .hero,.split{grid-template-columns:1fr}
+ .priceGrid,.steps{grid-template-columns:1fr}
+ .specGrid{grid-template-columns:1fr 1fr}
+ section{padding:44px 0}
+}
+@media(max-width:700px){
+ .codeBody pre{white-space:pre-wrap;word-break:break-word}
+}
+@media(max-width:560px){
+ .logo small{display:none}
+ .logo{font-size:18px}
+ .nav{gap:8px}
+ .navRight{gap:8px}
+ .modelRow{grid-template-columns:1fr}
+ .specGrid{grid-template-columns:1fr 1fr}
+ .buyCard{padding:44px 20px 40px}
+ .navCta{display:none}
+ h1{font-size:39px}
+ .card,.priceCard{padding:22px}
+ .hero{padding-top:36px}
+ .langToggle button{padding:7px 10px}
+ .buyBtn,.buyGhost{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+ .reveal{opacity:1;filter:none;transform:none}
+}
+
+/* ===== Layout ala halaman AI: header ringkas, hero terminal, strip spesifikasi ===== */
+.logoSep{color:var(--violet2);margin:0 3px}
+.logoAi{color:var(--cyan2)}
+.statusInd{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);white-space:nowrap}
+.statusInd i{width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(0,210,148,.14);animation:pulse 2.4s ease-in-out infinite}
+.hero{padding:82px 0 38px;align-items:center}
+h1{font-size:clamp(40px,4.9vw,60px)}
+.chip{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.88em;font-weight:500;color:#fff;background:rgba(255,255,255,.08);border:1px solid var(--border);border-radius:8px;padding:1px 9px;white-space:nowrap;vertical-align:baseline}
+.termCard{border-radius:16px;background:linear-gradient(180deg,#0b0f1a,#080c15)}
+.termCard .codeHead b{margin-left:2px}
+.termFoot{padding:2px 18px 18px;color:var(--muted2);font-size:13px}
+.specStrip{margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--border);border-radius:20px;overflow:hidden;scroll-margin-top:96px}
+.specCell{padding:24px 26px;min-width:0;transition:background .25s ease}
+.specCell:hover{background:rgba(141,84,255,.07)}
+.specCell+.specCell{border-left:1px solid var(--border2)}
+.specCell span{display:block;font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.16em;color:var(--muted2);margin-bottom:10px}
+.specCell b{display:block;font-size:24px;letter-spacing:-.02em;line-height:1.1}
+.specCell small{display:block;color:var(--muted2);font-size:13.5px;margin-top:6px}
+section{scroll-margin-top:84px}
+.mobileLang{display:none}
+@media(max-width:860px){
+ .specStrip{grid-template-columns:1fr 1fr}
+ .specCell:nth-child(3){border-left:0}
+ .specCell:nth-child(n+3){border-top:1px solid var(--border2)}
+}
+@media(max-width:760px){ .statusInd{display:none} }
+@media(max-width:560px){
+ .navRight .langToggle{display:none}
+ .mobileLang{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0 4px}
+ .navCta{display:inline-flex;padding:10px 14px;font-size:13.5px}
+ .backArrow{width:36px;height:36px;flex-basis:36px;border-radius:10px}
+ .logo{font-size:17px}
+ .hero{padding-top:46px}
+ .specCell{padding:18px}
+ .specCell b{font-size:20px}
+}
+</style>
+</head>
+<body>
+<div class="cosmos"></div><div class="gridbg"></div><div class="stars"></div>
+
+<header id="siteHeader"><div class="wrap">
+  <div class="nav">
+    <div class="navLeft"><a class="backArrow" id="backArrow" href="https://mannnlabs.com" aria-label="Kembali ke mannnlabs.com" title="Kembali ke mannnlabs.com">←</a>
+    <a class="logo" id="logoLink" href="https://mannnlabs.com" aria-label="Mannn Labs AI — kembali ke halaman utama mannnlabs.com"><span>Mannn Labs<span class="logoSep">·</span><span class="logoAi">AI</span></span></a></div>
+    <nav class="navlinks" id="mainNav" aria-label="Utama">
+      <a href="#model" data-i18n="navModel">Model</a><a href="#harga" data-i18n="navHarga">Harga</a><a href="#order" data-i18n="navOrder">Cara Order</a><a href="#garansi" data-i18n="navGaransi">Garansi</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="navRight">
+      <div class="langToggle" role="group" aria-label="Language / Bahasa">
+        <button id="langId" class="active" type="button">ID</button><button id="langEn" type="button">EN</button>
+      </div>
+      <a class="btn btnPrimary navCta" href="#harga" style="padding:11px 18px" data-i18n="ctaBuy">Beli API Key</a>
+      <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="mobileMenu" id="mobileMenu" aria-label="Menu mobile">
+    <a href="#model" data-i18n="navModel">Model</a><a href="#harga" data-i18n="navHarga">Harga</a><a href="#order" data-i18n="navOrder">Cara Order</a><a href="#garansi" data-i18n="navGaransi">Garansi</a><a href="#faq">FAQ</a>
+    <div class="mobileLang"><span class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--muted2)">BAHASA / LANGUAGE</span><span class="langToggle" role="group" aria-label="Language / Bahasa"><button id="langIdM" class="active" type="button">ID</button><button id="langEnM" type="button">EN</button></span></div>
+  </nav>
+</div></header>
+
+<main id="top" class="wrap">
+  <!-- HERO PRODUK -->
+  <div class="hero">
+    <div class="reveal in">
+      <div class="eyebrow"><span data-i18n="heroEyebrow">INFRASTRUKTUR API AI — INDONESIA</span></div>
+      <h1><span data-i18n="heroH1a">Satu paket, satu API key.</span><br><span class="grad" data-i18n="heroH1b">Dua model, siap pakai.</span></h1>
+      <p class="lead"><span data-i18n="heroLeadA">Sambungkan model</span> <span class="chip">DeepSeek</span> <span data-i18n="heroLeadMid">dan</span> <span class="chip">Claude</span> <span data-i18n="heroLeadB">ke aplikasimu lewat API yang kompatibel dengan OpenAI. Konteks 128K untuk DeepSeek dan 200K untuk Claude, function calling siap jalan, dan skema harga jelas sejak awal — bayar, terima key, langsung pakai.</span></p>
+      <div class="heroCtas">
+        <a href="#harga" class="btn btnPrimary" data-i18n="heroCta1">Beli API Key</a>
+        <a href="#spesifikasi" class="btn btnGhost" data-i18n="heroCta2">Lihat Spesifikasi</a>
+      </div>
+    </div>
+    <div class="reveal in d1">
+      <div class="codeCard termCard">
+        <div class="codeHead">
+          <span class="dots"><span style="background:#2b3140"></span><span style="background:#2b3140"></span><span style="background:#2b3140"></span></span>
+          <b>terminal</b>
+          <button class="copyBtn" type="button" data-copy="codeBlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copyLabel" data-i18n="copyBtn">Salin Kode</span></button>
+        </div>
+        <div class="codeBody"><pre id="codeBlock"><span class="tok-c"># tempel API key kamu di </span><span class="tok-var">$KEY</span>
+<span class="tok-cmd">curl</span> <span class="tok-url">https://api.mannnlabs.com/v1/chat/completions</span> \
+  <span class="tok-flag">-H</span> <span class="tok-s">"</span><span class="tok-key">Content-Type:</span><span class="tok-str"> application/json</span><span class="tok-s">"</span> \
+  <span class="tok-flag">-H</span> <span class="tok-s">"</span><span class="tok-key">Authorization:</span><span class="tok-str"> Bearer </span><span class="tok-var">$KEY</span><span class="tok-s">"</span> \
+  <span class="tok-flag">-d</span> <span class="tok-s">'</span>{<span class="tok-key">"model"</span>: <span class="tok-str">"deepseek-chat"</span>,
+       <span class="tok-key">"messages"</span>: [{<span class="tok-key">"role"</span>: <span class="tok-str">"user"</span>,
+       <span class="tok-key">"content"</span>: <span class="tok-str">"Halo!"</span>}]}<span class="tok-s">'</span></pre></div>
+        <div class="termFoot" data-i18n="termCaption">Arahkan base URL OpenAI kamu ke sini dan sesuaikan nama modelnya — sisanya tetap.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRIP SPESIFIKASI -->
+  <div class="specStrip reveal in" id="spesifikasi">
+    <div class="specCell"><span>MODEL</span><b>DeepSeek + Claude</b><small data-i18n="stripModelSub">dua model, satu format API</small></div>
+    <div class="specCell"><span>CONTEXT</span><b>128K · 200K</b><small data-i18n="stripCtxSub">DeepSeek 128K · Claude 200K</small></div>
+    <div class="specCell"><span>INTERFACE</span><b>OpenAI</b><small data-i18n="stripIfaceSub">/v1 · function calling</small></div>
+    <div class="specCell"><span data-i18n="stripValidL">MASA AKTIF</span><b data-i18n="stripValidV">7 hari</b><small data-i18n="stripFairSub">per API key</small></div>
+  </div>
+
+  <!-- SPESIFIKASI MODEL -->
+  <section id="model">
+    <div class="secHead reveal"><div><div class="secLabel" data-i18n="modelLabel">01 / Spesifikasi Model</div><h2 data-i18n="modelH2">Kenali dulu sebelum membeli.</h2></div><p class="secDesc" data-i18n="modelDesc">Dua model ini karakternya berbeda, tapi cara pakainya sama persis: satu format request OpenAI-compatible, tinggal ganti nama modelnya saja. Tiap paket dapat API key-nya sendiri.</p></div>
+    <div class="tabs" role="tablist">
+      <button class="tabBtn active" type="button" data-model="deepseek" role="tab" aria-selected="true">DeepSeek — <span data-i18n="tabDeepSeek">Gesit &amp; Irit</span></button>
+      <button class="tabBtn" type="button" data-model="claude" role="tab" aria-selected="false">Claude — <span data-i18n="tabClaude">Lebih Cermat</span></button>
+    </div>
+    <div class="card reveal" id="modelCard">
+      <h3 id="modelTitle">DeepSeek</h3>
+      <p id="modelDesc">Model open-weight dari DeepSeek: kuat di penalaran dan coding, tapi tetap irit biaya. Enak diajak ngobrol, membantu menulis kode, dan menyelesaikan tugas harian — nyaman dipakai dalam Bahasa Indonesia maupun Inggris.</p>
+      <div class="modelMeta">
+        <span class="tag" id="modelTag">OPEN-WEIGHT — DARI DEEPSEEK</span>
+        <span class="tag tagCyan" id="modelId">model: deepseek-chat</span>
+      </div>
+      <div class="specGrid">
+        <div class="spec"><span data-i18n="specCtxL">Konteks</span><b id="specCtx">128K token</b></div>
+        <div class="spec"><span data-i18n="specPriceL">Tarif</span><b id="specPrice" style="color:var(--cyan2)">Rp50.000 / minggu per API key</b></div>
+        <div class="spec"><span data-i18n="specSpeedL">Kecepatan</span><b id="specSpeed">Sangat Gesit</b></div>
+        <div class="spec"><span data-i18n="specBestL">Cocok Untuk</span><b id="specBest" style="font-size:15px">Obrolan, Kode, Bot</b></div>
+        <div class="spec"><span data-i18n="specFmtL">Format API</span><b style="font-size:15px">OpenAI-compatible</b></div>
+        <div class="spec"><span data-i18n="specStreamL">Streaming</span><b id="specStream" style="font-size:15px">Didukung</b></div>
+      </div>
+      <div class="modelCols">
+        <div class="modelCol">
+          <h4 data-i18n="capLabel">Kemampuan</h4>
+          <ul class="feat" id="capList"></ul>
+        </div>
+        <div class="modelCol">
+          <h4 data-i18n="useLabel">Kegunaan</h4>
+          <ul class="useList" id="useList"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HARGA -->
+  <section id="harga">
+    <div class="secHead reveal">
+      <div><div class="secLabel" data-i18n="hargaLabel">02 / Harga</div><h2 data-i18n="hargaH2">Harga yang bisa kamu hitung sendiri.</h2></div><p class="secDesc" data-i18n="hargaDesc">Harga dipisah per model — DeepSeek satu paket mingguan dengan batas fair-use per menit, Claude paket 7 hari dengan jatah token.</p>
+    </div>
+
+    <div class="priceGroup reveal">
+      <div class="priceGroupHead">
+        <div><h3>DeepSeek</h3><p data-i18n="dsGroupSub">Satu paket. Udah.</p></div>
+        <span class="priceGroupTag" data-i18n="dsGroupTag">BATAS FAIR-USE JELAS</span>
+      </div>
+      <div class="priceGrid deepseekGrid">
+        <article class="priceCard">
+          <span class="tag" data-i18n="dsTag">BATCH PERCOBAAN</span>
+          <div class="price" data-i18n="dsPrice">Rp50.000</div>
+          <span class="perLabel" data-i18n="dsPer">/ minggu / API key</span>
+          <ul class="feat">
+            <li data-i18n="dsF1">Model DeepSeek — context 128K token per request</li>
+            <li data-i18n="dsF2">OpenAI-compatible /v1 · function calling</li>
+            <li data-i18n="dsF3">Batas pemakaian wajar (fair-use): 120 request/menit · 100rb token/menit · 5 request paralel</li>
+            <li data-i18n="dsF4">Batas per menit ini menjaga layanan tetap stabil dan adil untuk semua pengguna</li>
+            <li data-i18n="dsF5">Masa berlaku 1 minggu per API key</li>
+            <li data-i18n="dsF6">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran</li>
+          </ul>
+          <a href="#order" class="btn btnPrimary" style="width:100%;margin-top:20px" data-i18n="dsCta">Ambil Batch Percobaan</a>
+        </article>
+      </div>
+    </div>
+
+    <div class="priceGroup reveal">
+      <div class="priceGroupHead">
+        <div><h3>Claude</h3><p data-i18n="clGroupSub">Paket 7 hari, hangus, tanpa rollover.</p></div>
+        <span class="priceGroupTag" data-i18n="clGroupTag">SATU PAKET = SATU KEY</span>
+      </div>
+      <div class="priceGrid">
+        <article class="priceCard">
+          <span class="tag" data-i18n="cl1Tag">SANTAI</span>
+          <div class="price" data-i18n="cl1Price">Rp25.000</div>
+          <span class="perLabel" data-i18n="clPer">/ 7 hari</span>
+          <ul class="feat">
+            <li>Claude Haiku 5.5</li>
+            <li data-i18n="cl1F2">± 2 juta token Haiku</li>
+            <li data-i18n="clFKey">1 API key · 1 jatah token</li>
+            <li data-i18n="clRefund">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran</li>
+            <li data-i18n="clF7">Sisa token hangus di akhir hari ke-7 — tanpa rollover</li>
+          </ul>
+          <a href="#order" class="btn btnGhost" style="width:100%;margin-top:20px" data-i18n="cl1Cta">Ambil Santai</a>
+        </article>
+        <article class="priceCard pop">
+          <span class="tag" data-i18n="cl2Tag">REGULER</span>
+          <div class="price" data-i18n="cl2Price">Rp50.000</div>
+          <span class="perLabel" data-i18n="clPer">/ 7 hari</span>
+          <ul class="feat">
+            <li>Claude Haiku 5.5</li>
+            <li data-i18n="cl2F2">± 5 juta token Haiku</li>
+            <li data-i18n="clFKey">1 API key · 1 jatah token</li>
+            <li data-i18n="clRefund">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran</li>
+            <li data-i18n="clF7">Sisa token hangus di akhir hari ke-7 — tanpa rollover</li>
+          </ul>
+          <a href="#order" class="btn btnPrimary" style="width:100%;margin-top:20px" data-i18n="cl2Cta">Pilih Reguler</a>
+        </article>
+        <article class="priceCard">
+          <span class="tag tagCyan" data-i18n="cl3Tag">POWER</span>
+          <div class="price" data-i18n="cl3Price">Rp99.000</div>
+          <span class="perLabel" data-i18n="clPer">/ 7 hari</span>
+          <ul class="feat">
+            <li>Claude Sonnet 5.5</li>
+            <li data-i18n="cl3F2">± 500 ribu token Sonnet</li>
+            <li data-i18n="clFKey">1 API key · 1 jatah token</li>
+            <li data-i18n="clRefund">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran</li>
+            <li data-i18n="clF7">Sisa token hangus di akhir hari ke-7 — tanpa rollover</li>
+          </ul>
+          <a href="#order" class="btn btnGhost" style="width:100%;margin-top:20px" data-i18n="cl3Cta">Ambil Power</a>
+        </article>
+      </div>
+      <div class="ruleBox"><b data-i18n="clRuleB">Aturan paket Claude:</b> <span data-i18n="clRule">satu paket = satu key, satu jatah token. Kalau jatah token habis sebelum 7 hari, key berhenti; kalau waktu habis duluan, sisa token hangus — tanpa rollover.</span></div>
+    </div>
+
+    <p class="priceNoteLine reveal" data-i18n="priceFoot">Harga per paket 7 hari (bukan per token): tiap paket punya jatah tokennya sendiri — Santai ±2 juta token Haiku, Reguler ±5 juta token Haiku, Power ±500 ribu token Sonnet.</p>
+  </section>
+
+  <!-- CARA ORDER -->
+  <section id="order">
+    <div class="secHead reveal"><div><div class="secLabel" data-i18n="orderLabel">03 / Cara Order</div><h2 data-i18n="orderH2">Dari klik sampai key aktif, tiga langkah saja.</h2></div></div>
+    <div class="steps">
+      <article class="step reveal">
+        <div class="stepNum"><b>1</b><span data-i18n="step1k">PILIH PAKET</span></div>
+        <h3 data-i18n="step1h">Tentukan paket, lalu sapa kami</h3>
+        <p><span data-i18n="step1p">Klik tombol beli pada paket yang kamu mau, atau kirim email ke</span> <a href="mailto:founder@mannnlabs.com?subject=Pesan%20API%20Mannn%20Labs">founder@mannnlabs.com</a> <span data-i18n="step1p2">dengan menyebut nama paketnya. Kami balas dengan rincian pembayaran.</span></p>
+      </article>
+      <article class="step reveal d1">
+        <div class="stepNum"><b>2</b><span data-i18n="step2k">BAYAR</span></div>
+        <h3 data-i18n="step2h">Selesaikan pembayaran lokal</h3>
+        <p data-i18n="step2p">Bayar lewat QRIS, Virtual Account, atau e-wallet — pilih yang paling gampang buatmu. Simpan buktinya, lalu kirimkan ke kami sebagai konfirmasi.</p>
+      </article>
+      <article class="step reveal d2">
+        <div class="stepNum"><b>3</b><span data-i18n="step3k">TERIMA KEY</span></div>
+        <h3 data-i18n="step3h">API key meluncur ke emailmu</h3>
+        <p data-i18n="step3p">Begitu pembayaran terkonfirmasi, API key dan panduan singkat pemakaiannya kami kirim ke email kamu. Tinggal tempel ke aplikasi, dan model siap bekerja.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- GARANSI & PRIVASI -->
+  <section id="garansi">
+    <div class="secHead reveal"><div><div class="secLabel" data-i18n="garLabel">04 / Garansi &amp; Privasi</div><h2 data-i18n="garH2">Uangmu aman, datamu lebih aman lagi.</h2></div></div>
+    <div class="split">
+      <article class="card reveal">
+        <span class="tag" data-i18n="garTag">GARANSI PEMBELIAN</span>
+        <h3 style="margin-top:14px" data-i18n="garCardH">Garansi pembelian yang jelas</h3>
+        <div class="shieldRow">
+          <span class="shieldIco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <div><h4 data-i18n="g1h">Key tidak bisa dipakai? Kami bantu perbaiki atau ganti key baru — refund 100% tetap terjamin</h4><p data-i18n="g1p">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran. Aturan ini berlaku untuk semua paket — DeepSeek maupun Claude — ajukan lewat email ke founder@mannnlabs.com.</p></div>
+        </div>
+        <div class="shieldRow">
+          <span class="shieldIco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.8 12.2 9.2-9.2M15 5l3 3M19 2l3 3"/></svg></span>
+          <div><h4 data-i18n="g2h">Semua paket, satu aturan garansi</h4><p data-i18n="g2p">DeepSeek maupun Claude, aturannya sama: kami bantu perbaiki atau ganti key baru dulu, dan kalau key tetap tidak bisa dipakai karena kesalahan dari sisi kami, refund 100% adalah hasil yang dijamin — kamu tidak dibiarkan menggantung.</p></div>
+        </div>
+        <div class="shieldRow">
+          <span class="shieldIco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg></span>
+          <div><h4 data-i18n="g3h">Dibantu manusia, bukan templat</h4><p id="g3p">Kendala saat pemasangan atau pemakaian dibantu langsung lewat email, oleh orang yang memang membangun layanan ini.</p></div>
+        </div>
+      </article>
+      <article class="card reveal d1">
+        <span class="tag tagCyan" data-i18n="privTag">PRIVASI PENGGUNA</span>
+        <h3 style="margin-top:14px" data-i18n="privCardH">Prompt &amp; data diproses secara transparan</h3>
+        <div class="shieldRow">
+          <span class="shieldIco cy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          <div><h4 data-i18n="pv1h">Prompt diteruskan ke penyedia model</h4><p data-i18n="pv1p">Agar permintaanmu bisa dijawab, prompt diteruskan ke penyedia model (DeepSeek / Anthropic) yang kamu gunakan. Pembayaran diproses oleh pihak ketiga melalui QRIS, Virtual Account, atau e-wallet. Kami tidak menjual datamu untuk iklan, dan kami tidak memakai promptmu untuk melatih model.</p></div>
+        </div>
+        <div class="shieldRow">
+          <span class="shieldIco cy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/><path d="m4 4 16 16"/></svg></span>
+          <div><h4 data-i18n="pv2h">Log seperlunya saja</h4><p data-i18n="pv2p">Sistem hanya mencatat log sebatas kebutuhan tagihan dan keamanan — berapa token terpakai dan kapan — bukan untuk mengintip isi percakapanmu.</p></div>
+        </div>
+        <div class="shieldRow">
+          <span class="shieldIco cy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.8 12.2 9.2-9.2M15 5l3 3M19 2l3 3"/></svg></span>
+          <div><h4 data-i18n="pv3h">Key-mu, kendalimu</h4><p data-i18n="pv3p">Jaga API key seperti menjaga kata sandi. Merasa key-mu bocor? Minta cabut dan ganti baru kapan saja lewat email, tanpa biaya tambahan.</p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="secHead reveal"><div><div class="secLabel" data-i18n="faqLabel">05 / FAQ</div><h2 data-i18n="faqH2">Sebelum checkout, cek ini dulu</h2></div></div>
+    <div class="faqList reveal">
+      <div class="faqItem open">
+        <button class="faqQ" type="button" aria-expanded="true"><span data-i18n="q1">Bedanya paket DeepSeek dan Claude apa?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a1">DeepSeek cuma punya satu paket: Batch Percobaan Rp50.000 per minggu per API key, dengan batas pemakaian wajar (fair-use) 120 request/menit, 100rb token/menit, dan 5 request paralel — batas per menit ini menjaga layanan tetap stabil untuk semua pengguna. Claude dijual per paket 7 hari dengan jatah token: Santai Rp25.000 (± 2 juta token Haiku 5.5), Reguler Rp50.000 (± 5 juta token Haiku 5.5), dan Power Rp99.000 (± 500 ribu token Sonnet 5.5). Aturan refund yang sama berlaku untuk semua paket.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q2">Bayar dan terima key-nya lewat apa?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a2">Pembayaran per paket, lewat QRIS, Virtual Account, maupun e-wallet. Pesan dulu lewat email ke founder@mannnlabs.com, bayar paket yang kamu pilih, begitu pembayaran terkonfirmasi API key langsung dikirim ke email kamu. Satu paket berlaku 1 minggu (DeepSeek) atau 7 hari (Claude), lalu hangus.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q3">Satu paket dapat berapa API key?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a3">Satu paket = satu API key dengan jatahnya sendiri. Key DeepSeek berlaku untuk model DeepSeek, key Claude untuk model Claude di paketnya — kalau butuh dua model, ambil dua paket.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q4">Aplikasiku sekarang jalan di OpenAI. Susah tidak pindahnya?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a4">Tidak. API kami mengikuti format OpenAI, jadi umumnya kamu cukup mengganti base_url ke api.mannnlabs.com dan nama model ke model yang kamu beli, lalu memakai API key dari kami. Library OpenAI untuk Python dan JavaScript bisa langsung dipakai.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q5">Masa berlakunya berapa lama?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a5">Paket DeepSeek berlaku 1 minggu per API key. Paket Claude berlaku 7 hari: kalau jatah token habis sebelum 7 hari, key berhenti; kalau waktu habis duluan, sisa token hangus — tanpa rollover ke paket berikutnya.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q6">Bisa refund kalau ternyata tidak cocok?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a6">Bisa, dengan satu aturan yang sama untuk semua paket: Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran. Kalau key bermasalah, kami bantu perbaiki atau ganti key baru dulu — dan kalau tetap tidak bisa dipakai karena kesalahan dari sisi kami, refund 100% adalah hasil yang dijamin. Ajukan lewat email ke founder@mannnlabs.com.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q7">Apakah Mannn Labs resmi dari DeepSeek atau Anthropic?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a7">Tidak. Mannn Labs adalah penyedia akses API independen — kami bukan afiliasi resmi, anak perusahaan, maupun perwakilan resmi DeepSeek dan Anthropic (pembuat Claude). Kami menyediakan akses ke model-model tersebut, dengan API key, paket, dan dukungan yang kami kelola sendiri. Nama DeepSeek dan Claude di halaman ini hanya merujuk pada model yang kami sediakan aksesnya.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BELI -->
+  <section id="beli" style="padding-bottom:24px">
+    <div class="buyWrap reveal">
+      <div class="buyLabel">06 — <span data-i18n="buyLabel">Mulai Sekarang</span></div>
+      <div class="buyCard">
+        <h2><span data-i18n="buyH2a">Key pertamamu cuma</span><br><span class="accent" data-i18n="buyH2b">berjarak satu email.</span></h2>
+        <p data-i18n="buyP">Sebutkan paket yang kamu mau — Batch Percobaan untuk DeepSeek, atau paket Santai, Reguler, atau Power untuk Claude — dan kami balas dengan rincian pembayarannya. Tanpa daftar berbelit, tanpa kartu kredit.</p>
+        <div class="buyBtns">
+          <a class="buyBtn" href="mailto:founder@mannnlabs.com?subject=Pesan%20API%20Mannn%20Labs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 6 9 7 9-7"/></svg>founder@mannnlabs.com</a>
+          <a class="buyGhost" href="#harga" data-i18n="buyGhost">Bandingkan Paket Dulu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footRow"><span data-i18n="footL">© 2026 PT Mannn Labs (PT Perorangan) • Halaman penjualan di ai.mannnlabs.com.</span><span><a href="https://mannnlabs.com" data-i18n="footBack">← Kembali ke mannnlabs.com — Profil Perusahaan</a> • <a href="mailto:founder@mannnlabs.com">founder@mannnlabs.com</a></span></div></footer>
+
+<script>
+var LANG='id', activeModel='deepseek';
+var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+var I18N={
+id:{navHome:'←',footBack:'← Kembali ke mannnlabs.com — Profil Perusahaan',navModel:'Model',navHarga:'Harga',navOrder:'Cara Order',navGaransi:'Garansi',navBeli:'Beli',ctaBuy:'Beli API Key',backLabel:'Kembali ke mannnlabs.com',logoLabel:'Mannn Labs AI — kembali ke halaman utama mannnlabs.com',navLabel:'Utama',langGroupLabel:'Language / Bahasa',dsTag:'BATCH PERCOBAAN',dsPrice:'Rp50.000',
+heroEyebrow:'INFRASTRUKTUR API AI — INDONESIA',heroH1a:'Satu paket, satu API key.',heroH1b:'Dua model, siap pakai.',
+heroLeadA:'Sambungkan model',heroLeadMid:'dan',heroLeadB:'ke aplikasimu lewat API yang kompatibel dengan OpenAI. Konteks 128K untuk DeepSeek dan 200K untuk Claude, function calling siap jalan, dan skema harga jelas sejak awal — bayar, terima key, langsung pakai.',
+heroCta1:'Beli API Key',heroCta2:'Lihat Spesifikasi',termCaption:'Arahkan base URL OpenAI kamu ke sini dan sesuaikan nama modelnya — sisanya tetap.',stripModelSub:'dua model, satu format API',stripCtxSub:'DeepSeek 128K · Claude 200K',stripIfaceSub:'/v1 · function calling',stripValidL:'MASA AKTIF',stripValidV:'7 hari',stripFairSub:'per API key',
+heroNote:'Profil lengkap perusahaannya ada di halaman utama mannnlabs.com — halaman ini khusus untuk membeli akses API-nya.',
+codeHead:'sambungkan.py',copyBtn:'Salin Kode',copied:'Tersalin ✓',
+miniDeepSeek:'Pilihan hemat untuk pemakaian ramai: obrolan, bantuan kode, dan tugas harian yang butuh jawaban cepat.',miniDeepSeekRate:'Rp50.000 / minggu per API key',
+miniClaude:'Pilihan teliti untuk bacaan panjang: dokumen tebal, riset, dan naskah yang hasilnya harus rapi.',miniClaudeRate:'paket 7 hari mulai Rp25.000',
+modelLabel:'01 / Spesifikasi Model',modelH2:'Kenali dulu sebelum membeli.',modelDesc:'Dua model ini karakternya berbeda, tapi cara pakainya sama persis: satu format request OpenAI-compatible, tinggal ganti nama modelnya saja. Tiap paket dapat API key-nya sendiri.',
+tabDeepSeek:'Gesit & Irit',tabClaude:'Lebih Cermat',capLabel:'Kemampuan',useLabel:'Kegunaan',specCtxL:'Konteks',specPriceL:'Tarif',specSpeedL:'Kecepatan',specBestL:'Cocok Untuk',specFmtL:'Format API',specStreamL:'Streaming',
+hargaLabel:'02 / Harga',hargaH2:'Harga yang bisa kamu hitung sendiri.',hargaDesc:'Harga dipisah per model — DeepSeek satu paket mingguan dengan batas fair-use per menit, Claude paket 7 hari dengan jatah token.',
+dsGroupSub:'Satu paket. Udah.',dsGroupTag:'BATAS FAIR-USE JELAS',dsPer:'/ minggu / API key',dsF1:'Model DeepSeek — context 128K token per request',dsF2:'OpenAI-compatible /v1 · function calling',dsF3:'Batas pemakaian wajar (fair-use): 120 request/menit · 100rb token/menit · 5 request paralel',dsF4:'Batas per menit ini menjaga layanan tetap stabil dan adil untuk semua pengguna',dsF5:'Masa berlaku 1 minggu per API key',dsF6:'Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran',dsCta:'Ambil Batch Percobaan',clGroupSub:'Paket 7 hari, hangus, tanpa rollover.',clGroupTag:'SATU PAKET = SATU KEY',cl1Tag:'SANTAI',cl2Tag:'REGULER',cl3Tag:'POWER',clPer:'/ 7 hari',cl1Price:'Rp25.000',cl2Price:'Rp50.000',cl3Price:'Rp99.000',clRefund:'Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran',cl1F2:'± 2 juta token Haiku',cl2F2:'± 5 juta token Haiku',cl3F2:'± 500 ribu token Sonnet',clFKey:'1 API key · 1 jatah token',clF7:'Sisa token hangus di akhir hari ke-7 — tanpa rollover',cl1Cta:'Ambil Santai',cl2Cta:'Pilih Reguler',cl3Cta:'Ambil Power',clRuleB:'Aturan paket Claude:',clRule:'satu paket = satu key, satu jatah token. Kalau jatah token habis sebelum 7 hari, key berhenti; kalau waktu habis duluan, sisa token hangus — tanpa rollover.',priceFoot:'Harga per paket 7 hari (bukan per token): tiap paket punya jatah tokennya sendiri — Santai ±2 juta token Haiku, Reguler ±5 juta token Haiku, Power ±500 ribu token Sonnet.',
+orderLabel:'03 / Cara Order',orderH2:'Dari klik sampai key aktif, tiga langkah saja.',
+step1k:'PILIH PAKET',step1h:'Tentukan paket, lalu sapa kami',step1p:'Klik tombol beli pada paket yang kamu mau, atau kirim email ke',step1p2:'dengan menyebut nama paketnya. Kami balas dengan rincian pembayaran.',
+step2k:'BAYAR',step2h:'Selesaikan pembayaran lokal',step2p:'Bayar lewat QRIS, Virtual Account, atau e-wallet — pilih yang paling gampang buatmu. Simpan buktinya, lalu kirimkan ke kami sebagai konfirmasi.',
+step3k:'TERIMA KEY',step3h:'API key meluncur ke emailmu',step3p:'Begitu pembayaran terkonfirmasi, API key dan panduan singkat pemakaiannya kami kirim ke email kamu. Tinggal tempel ke aplikasi, dan model siap bekerja.',
+garLabel:'04 / Garansi & Privasi',garH2:'Uangmu aman, datamu lebih aman lagi.',
+garTag:'GARANSI PEMBELIAN',garCardH:'Garansi pembelian yang jelas',
+g1h:'Key tidak bisa dipakai? Kami bantu perbaiki atau ganti key baru — refund 100% tetap terjamin',g1p:'Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran. Aturan ini berlaku untuk semua paket — DeepSeek maupun Claude — ajukan lewat email ke founder@mannnlabs.com.',
+g2h:'Semua paket, satu aturan garansi',g2p:'DeepSeek maupun Claude, aturannya sama: kami bantu perbaiki atau ganti key baru dulu, dan kalau key tetap tidak bisa dipakai karena kesalahan dari sisi kami, refund 100% adalah hasil yang dijamin — kamu tidak dibiarkan menggantung.',
+g3h:'Dibantu manusia, bukan templat',g3p:'Kendala saat pemasangan atau pemakaian dibantu langsung lewat email, oleh orang yang memang membangun layanan ini.',
+privTag:'PRIVASI PENGGUNA',privCardH:'Prompt & data diproses secara transparan',
+pv1h:'Prompt diteruskan ke penyedia model',pv1p:'Agar permintaanmu bisa dijawab, prompt diteruskan ke penyedia model (DeepSeek / Anthropic) yang kamu gunakan. Pembayaran diproses oleh pihak ketiga melalui QRIS, Virtual Account, atau e-wallet. Kami tidak menjual datamu untuk iklan, dan kami tidak memakai promptmu untuk melatih model.',
+pv2h:'Log seperlunya saja',pv2p:'Sistem hanya mencatat log sebatas kebutuhan tagihan dan keamanan — berapa token terpakai dan kapan — bukan untuk mengintip isi percakapanmu.',
+pv3h:'Key-mu, kendalimu',pv3p:'Jaga API key seperti menjaga kata sandi. Merasa key-mu bocor? Minta cabut dan ganti baru kapan saja lewat email, tanpa biaya tambahan.',
+faqLabel:'05 / FAQ',faqH2:'Sebelum checkout, cek ini dulu',
+q1:'Bedanya paket DeepSeek dan Claude apa?',a1:'DeepSeek cuma punya satu paket: Batch Percobaan Rp50.000 per minggu per API key, dengan batas pemakaian wajar (fair-use) 120 request/menit, 100rb token/menit, dan 5 request paralel — batas per menit ini menjaga layanan tetap stabil untuk semua pengguna. Claude dijual per paket 7 hari dengan jatah token: Santai Rp25.000 (± 2 juta token Haiku 5.5), Reguler Rp50.000 (± 5 juta token Haiku 5.5), dan Power Rp99.000 (± 500 ribu token Sonnet 5.5). Aturan refund yang sama berlaku untuk semua paket.',
+q2:'Bayar dan terima key-nya lewat apa?',a2:'Pembayaran per paket, lewat QRIS, Virtual Account, maupun e-wallet. Pesan dulu lewat email ke founder@mannnlabs.com, bayar paket yang kamu pilih, begitu pembayaran terkonfirmasi API key langsung dikirim ke email kamu. Satu paket berlaku 1 minggu (DeepSeek) atau 7 hari (Claude), lalu hangus.',
+q3:'Satu paket dapat berapa API key?',a3:'Satu paket = satu API key dengan jatahnya sendiri. Key DeepSeek berlaku untuk model DeepSeek, key Claude untuk model Claude di paketnya — kalau butuh dua model, ambil dua paket.',
+q4:'Aplikasiku sekarang jalan di OpenAI. Susah tidak pindahnya?',a4:'Tidak. API kami mengikuti format OpenAI, jadi umumnya kamu cukup mengganti base_url ke api.mannnlabs.com dan nama model ke model yang kamu beli, lalu memakai API key dari kami. Library OpenAI untuk Python dan JavaScript bisa langsung dipakai.',
+q5:'Masa berlakunya berapa lama?',a5:'Paket DeepSeek berlaku 1 minggu per API key. Paket Claude berlaku 7 hari: kalau jatah token habis sebelum 7 hari, key berhenti; kalau waktu habis duluan, sisa token hangus — tanpa rollover ke paket berikutnya.',
+q6:'Bisa refund kalau ternyata tidak cocok?',a6:'Bisa, dengan satu aturan yang sama untuk semua paket: Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran. Kalau key bermasalah, kami bantu perbaiki atau ganti key baru dulu — dan kalau tetap tidak bisa dipakai karena kesalahan dari sisi kami, refund 100% adalah hasil yang dijamin. Ajukan lewat email ke founder@mannnlabs.com.',
+q7:'Apakah Mannn Labs resmi dari DeepSeek atau Anthropic?',a7:'Tidak. Mannn Labs adalah penyedia akses API independen — kami bukan afiliasi resmi, anak perusahaan, maupun perwakilan resmi DeepSeek dan Anthropic (pembuat Claude). Kami menyediakan akses ke model-model tersebut, dengan API key, paket, dan dukungan yang kami kelola sendiri. Nama DeepSeek dan Claude di halaman ini hanya merujuk pada model yang kami sediakan aksesnya.',
+buyLabel:'Mulai Sekarang',buyH2a:'Key pertamamu cuma',buyH2b:'berjarak satu email.',buyP:'Sebutkan paket yang kamu mau — Batch Percobaan untuk DeepSeek, atau paket Santai, Reguler, atau Power untuk Claude — dan kami balas dengan rincian pembayarannya. Tanpa daftar berbelit, tanpa kartu kredit.',buyGhost:'Bandingkan Paket Dulu',
+footL:'© 2026 PT Mannn Labs (PT Perorangan) • Halaman penjualan di ai.mannnlabs.com.'},
+en:{navHome:'←',footBack:'← Back to mannnlabs.com — Company Profile',navModel:'Models',navHarga:'Pricing',navOrder:'How to Order',navGaransi:'Guarantee',navBeli:'Buy',ctaBuy:'Buy API Key',backLabel:'Back to mannnlabs.com',logoLabel:'Mannn Labs AI — back to the main page of mannnlabs.com',navLabel:'Main',langGroupLabel:'Language',dsTag:'Trial Batch',dsPrice:'Rp50,000',
+heroEyebrow:'AI API INFRASTRUCTURE — INDONESIA',heroH1a:'One package, one API key.',heroH1b:'Two models ready.',
+heroLeadA:'Connect the',heroLeadMid:'and',heroLeadB:'models to your app through an OpenAI-compatible API. A 128K context window for DeepSeek and 200K for Claude, function calling ready to go, and pricing that stays clear from the start — pay, receive your key, and you are running.',
+heroCta1:'Buy API Key',heroCta2:'See the Specs',termCaption:'Point your OpenAI base URL here and set the model name — the rest stays the same.',stripModelSub:'two models, one API format',stripCtxSub:'DeepSeek 128K · Claude 200K',stripIfaceSub:'/v1 · function calling',stripValidL:'VALIDITY',stripValidV:'7 days',stripFairSub:'per API key',
+heroNote:'The full company profile lives on the main site, mannnlabs.com — this page is dedicated to buying API access.',
+codeHead:'sambungkan.py',copyBtn:'Copy Code',copied:'Copied ✓',
+miniDeepSeek:'The thrifty pick for busy workloads: chats, coding help, and daily tasks that need quick answers.',miniDeepSeekRate:'Rp50,000 / week per API key',
+miniClaude:'The meticulous pick for long reads: thick documents, research, and drafts that must come out tidy.',miniClaudeRate:'7-day plans from Rp25,000',
+modelLabel:'01 / Model Specs',modelH2:'Get to know them before you buy.',modelDesc:'These two models have different characters, but exactly the same way of working: one OpenAI-compatible request format — just switch the model name. Each package gets its own API key.',
+tabDeepSeek:'Swift & Thrifty',tabClaude:'More Meticulous',capLabel:'Capabilities',useLabel:'Use Cases',specCtxL:'Context',specPriceL:'Rate',specSpeedL:'Speed',specBestL:'Best For',specFmtL:'API Format',specStreamL:'Streaming',
+hargaLabel:'02 / Pricing',hargaH2:'Pricing you can calculate yourself.',hargaDesc:'Pricing is split per model — DeepSeek is one weekly plan with per-minute fair-use limits, Claude comes in 7-day plans with a token allowance.',
+dsGroupSub:'One plan. That is it.',dsGroupTag:'CLEAR FAIR-USE LIMITS',dsPer:'/ week / API key',dsF1:'DeepSeek model — 128K-token context per request',dsF2:'OpenAI-compatible /v1 · function calling',dsF3:'Fair-use (reasonable-use) limits: 120 requests/minute · 100K tokens/minute · 5 parallel requests',dsF4:'These per-minute limits keep the service stable and fair for every user',dsF5:'Valid for 1 week per API key',dsF6:'100% refund if the API key cannot be used due to an error on our side, requested within 7 days of payment',dsCta:'Get the Trial Batch',clGroupSub:'7-day plans that expire, with no rollover.',clGroupTag:'ONE PLAN = ONE KEY',cl1Tag:'RELAXED',cl2Tag:'REGULAR',cl3Tag:'POWER',clPer:'/ 7 days',cl1Price:'Rp25,000',cl2Price:'Rp50,000',cl3Price:'Rp99,000',clRefund:'100% refund if the API key cannot be used due to an error on our side, requested within 7 days of payment',cl1F2:'± 2 million Haiku tokens',cl2F2:'± 5 million Haiku tokens',cl3F2:'± 500K Sonnet tokens',clFKey:'1 API key · 1 token allowance',clF7:'Leftover tokens expire at the end of day 7 — no rollover',cl1Cta:'Get Relaxed',cl2Cta:'Choose Regular',cl3Cta:'Get Power',clRuleB:'Claude plan rules:',clRule:'one plan = one key, one token allowance. If the token allowance runs out before the 7 days are up, the key stops; if the time runs out first, the leftover tokens expire — no rollover.',priceFoot:'Pricing is per 7-day package (not per token): each package has its own token allowance — Relaxed ±2 million Haiku tokens, Regular ±5 million Haiku tokens, Power ±500K Sonnet tokens.',
+orderLabel:'03 / How to Order',orderH2:'From click to active key, just three steps.',
+step1k:'PICK A PLAN',step1h:'Choose a plan, then say hello',step1p:'Hit the buy button on the plan you want, or email',step1p2:'naming the plan. We reply with the payment details.',
+step2k:'PAY',step2h:'Complete a local payment',step2p:'Pay via QRIS, Virtual Account, or e-wallet — whichever is easiest for you. Keep the receipt and send it to us as confirmation.',
+step3k:'GET YOUR KEY',step3h:'Your API key lands in your inbox',step3p:'Once your payment is confirmed, we email your API key with a short usage guide. Paste it into your app, and the models are ready to work.',
+garLabel:'04 / Guarantee & Privacy',garH2:'Your money is safe; your data, safer.',
+garTag:'PURCHASE GUARANTEE',garCardH:'A clear purchase guarantee',
+g1h:'Key not working? We help fix it or replace the key — a 100% refund stays guaranteed',g1p:'100% refund if the API key cannot be used due to an error on our side, requested within 7 days of payment. This rule applies to every plan — DeepSeek and Claude alike — request it by email to founder@mannnlabs.com.',
+g2h:'Every plan, one guarantee rule',g2p:'DeepSeek or Claude, the rule is the same: we help fix it or issue a new key first, and if the key still cannot be used due to an error on our side, a 100% refund is the guaranteed outcome — you are never left hanging.',
+g3h:'Helped by humans, not templates',g3p:'Setup and usage issues are handled directly over email, by the people who actually built this service.',
+privTag:'USER PRIVACY',privCardH:'Prompts & data, processed transparently',
+pv1h:'Prompts are forwarded to the model provider',pv1p:'To answer your requests, your prompts are forwarded to the model provider (DeepSeek / Anthropic) you use. Payments are processed by third parties via QRIS, Virtual Account, or e-wallet. We do not sell your data for advertising, and we do not use your prompts to train models.',
+pv2h:'Logs kept to the minimum',pv2p:'The system only logs what billing and security require — how many tokens were used and when — not to peek into your conversations.',
+pv3h:'Your key, your control',pv3p:'Treat your API key like a password. Think it leaked? Ask us to revoke and replace it any time by email, at no extra cost.',
+faqLabel:'05 / FAQ',faqH2:'Before you check out, read this first',
+q1:'What is the difference between the DeepSeek and Claude plans?',a1:'DeepSeek has exactly one plan: the Trial Batch at Rp50,000 per week per API key, with fair-use (reasonable-use) limits of 120 requests/minute, 100K tokens/minute, and 5 parallel requests — these per-minute limits keep the service stable for every user. Claude is sold in 7-day plans with a token allowance: Relaxed Rp25,000 (± 2 million Haiku 5.5 tokens), Regular Rp50,000 (± 5 million Haiku 5.5 tokens), and Power Rp99,000 (± 500K Sonnet 5.5 tokens). The same refund rule applies to every plan.',
+q2:'How do I pay, and how do I receive the key?',a2:'Payment is per package, via QRIS, Virtual Account, or e-wallet. Order first by email to founder@mannnlabs.com, pay for the package you choose, and once payment is confirmed your API key is sent straight to your email. One package lasts 1 week (DeepSeek) or 7 days (Claude), then it expires.',
+q3:'How many API keys does one plan include?',a3:'One plan = one API key with its own allowance. A DeepSeek key works for the DeepSeek model, a Claude key for the Claude model in its plan — if you need both models, take two plans.',
+q4:'My app currently runs on OpenAI. Is migrating hard?',a4:'No. Our API follows the OpenAI format, so in most cases you only need to change the base_url to api.mannnlabs.com and the model name to the model you bought, then use an API key from us. The OpenAI libraries for Python and JavaScript work right away.',
+q5:'How long is it valid?',a5:'The DeepSeek plan is valid for 1 week per API key. Claude plans are valid for 7 days: if the token allowance runs out before the 7 days are up, the key stops; if the time runs out first, the leftover tokens expire — with no rollover to the next plan.',
+q6:'Can I get a refund if it is not a fit?',a6:'Yes, under one rule that applies to every plan: 100% refund if the API key cannot be used due to an error on our side, requested within 7 days of payment. If your key has a problem, we help fix it or issue a new key first — and if it still cannot be used due to an error on our side, a 100% refund is the guaranteed outcome. Request it by email to founder@mannnlabs.com.',
+q7:'Is Mannn Labs officially part of DeepSeek or Anthropic?',a7:'No. Mannn Labs is an independent API access provider — we are not an official affiliate, subsidiary, or representative of DeepSeek or of Anthropic (the maker of Claude). We provide access to those models, with API keys, plans, and support that we manage ourselves. The names DeepSeek and Claude on this page refer only to the models we provide access to.',
+buyLabel:'Start Now',buyH2a:'Your first key is only',buyH2b:'one email away.',buyP:'Name the plan you want — the Trial Batch for DeepSeek, or the Relaxed, Regular, or Power plan for Claude — and we reply with the payment details. No convoluted sign-up, no credit card.',buyGhost:'Compare Plans First',
+footL:'© 2026 PT Mannn Labs (PT Perorangan) • Sales page at ai.mannnlabs.com.'}
+};
+
+var MODELS={
+deepseek:{idName:'deepseek-chat',
+  id:{tag:'OPEN-WEIGHT — DARI DEEPSEEK',desc:'Model open-weight dari DeepSeek: kuat di penalaran dan coding, tapi tetap irit biaya. Enak diajak ngobrol, membantu menulis kode, dan menyelesaikan tugas harian — nyaman dipakai dalam Bahasa Indonesia maupun Inggris.',ctx:'128K token',speed:'Sangat Gesit',best:'Obrolan, Kode, Penalaran',price:'Rp50.000 / minggu per API key',stream:'Didukung',
+      caps:['Percakapan Bahasa Indonesia & Inggris','Membantu menulis dan memperbaiki kode','Function calling untuk menyambungkan tool & data','Jawaban streaming, terasa real-time','Penalaran kuat untuk logika, matematika & analisis','Model open-weight — fleksibel untuk berbagai eksperimen'],
+      uses:['Chatbot & asisten virtual untuk pelanggan','Copilot coding untuk tim developer','Bot Telegram / WhatsApp dan otomasi tugas harian','Draf konten, ringkasan, dan tanya-jawab cepat']},
+  en:{tag:'OPEN-WEIGHT — BY DEEPSEEK',desc:'An open-weight model from DeepSeek: strong at reasoning and coding, yet still cost-light. Easy to chat with, helpful for writing code, and handy for daily tasks — comfortable in both Indonesian and English.',ctx:'128K tokens',speed:'Very Swift',best:'Chats, Code, Reasoning',price:'Rp50,000 / week per API key',stream:'Supported',
+      caps:['Conversations in Indonesian & English','Helps write and fix code','Function calling to connect tools & data','Streaming answers that feel real-time','Strong reasoning for logic, math & analysis','Open-weight model — flexible for experiments'],
+      uses:['Chatbots & virtual assistants for customers','A coding copilot for developer teams','Telegram / WhatsApp bots and daily task automation','Content drafts, summaries, and quick Q&A']}},
+claude:{idName:'claude',
+  id:{tag:'ANTHROPIC',desc:'Pembaca yang cermat untuk berkas panjang dan naskah serius. Pilihan tepat saat kamu butuh riset dan analisis yang rapi.',ctx:'200K token',speed:'Cepat',best:'Berkas, Riset, Naskah',price:'Paket 7 hari mulai Rp25.000',stream:'Didukung',
+      caps:['Membaca & merangkum dokumen panjang','Penalaran dan analisis yang rapi dan runut','Menulis naskah panjang yang terstruktur','Function calling untuk menyambungkan tool & data','Jawaban streaming, terasa real-time'],
+      uses:['Ringkasan kontrak, laporan, dan dokumen tebal','Riset dan analisis sebelum mengambil keputusan','Penulisan artikel, proposal, dan naskah resmi','Review dan penyuntingan tulisan panjang']},
+  en:{tag:'ANTHROPIC',desc:'A careful reader for long files and serious drafts. The right pick when you need tidy research and analysis.',ctx:'200K tokens',speed:'Fast',best:'Files, Research, Drafts',price:'7-day plans from Rp25,000',stream:'Supported',
+      caps:['Reads & summarizes long documents','Tidy, step-by-step reasoning and analysis','Writes well-structured long-form drafts','Function calling to connect tools & data','Streaming answers that feel real-time'],
+      uses:['Summaries of contracts, reports, and thick documents','Research and analysis before making decisions','Writing articles, proposals, and official drafts','Reviewing and editing long-form writing']}}};
+
+function applyLang(){
+  var d=I18N[LANG];
+  document.documentElement.lang=LANG;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n'); if(d[k]!==undefined) el.textContent=d[k];
+  });
+  /* Paragraf Garansi dirender sebagai teks biasa */
+  var g3pEl=document.getElementById('g3p'); if(g3pEl) g3pEl.textContent=d.g3p;
+  /* Label aksesibilitas header & grup toggle bahasa mengikuti bahasa aktif */
+  var backEl=document.getElementById('backArrow'); if(backEl){ backEl.setAttribute('aria-label',d.backLabel); backEl.setAttribute('title',d.backLabel); }
+  var logoEl=document.getElementById('logoLink'); if(logoEl) logoEl.setAttribute('aria-label',d.logoLabel);
+  var mainNavEl=document.getElementById('mainNav'); if(mainNavEl) mainNavEl.setAttribute('aria-label',d.navLabel);
+  document.querySelectorAll('.langToggle').forEach(function(t){ t.setAttribute('aria-label',d.langGroupLabel); });
+  document.getElementById('langId').classList.toggle('active',LANG==='id');
+  document.getElementById('langEn').classList.toggle('active',LANG==='en');
+  var lm=document.getElementById('langIdM'), em=document.getElementById('langEnM');
+  if(lm) lm.classList.toggle('active',LANG==='id');
+  if(em) em.classList.toggle('active',LANG==='en');
+  renderModel(); syncCodeLang();
+}
+function fillList(id,items){
+  var ul=document.getElementById(id); if(!ul) return;
+  ul.textContent='';
+  items.forEach(function(t){ var li=document.createElement('li'); li.textContent=t; ul.appendChild(li); });
+}
+function renderModel(){
+  var m=MODELS[activeModel][LANG];
+  document.getElementById('modelTitle').textContent= activeModel==='deepseek' ? 'DeepSeek' : 'Claude';
+  document.getElementById('modelDesc').textContent=m.desc;
+  document.getElementById('modelTag').textContent=m.tag;
+  document.getElementById('modelId').textContent='model: '+MODELS[activeModel].idName;
+  document.getElementById('specCtx').textContent=m.ctx;
+  document.getElementById('specSpeed').textContent=m.speed;
+  document.getElementById('specBest').textContent=m.best;
+  document.getElementById('specPrice').textContent=m.price;
+  document.getElementById('specStream').textContent=m.stream;
+  fillList('capList',m.caps);
+  fillList('useList',m.uses);
+  document.querySelectorAll('.tabBtn').forEach(function(b){
+    var on=b.getAttribute('data-model')===activeModel;
+    b.classList.toggle('active',on); b.setAttribute('aria-selected',on?'true':'false');
+  });
+}
+function setLang(l){ LANG=l; applyLang(); }
+function bindLangBtn(id,l){
+  var b=document.getElementById(id); if(!b) return;
+  /* pointerdown + click: setLang bersifat idempoten (menetapkan nilai tetap),
+     jadi tap/klik pertama langsung menerapkan bahasa tanpa menunggu klik kedua */
+  b.addEventListener('pointerdown',function(){ setLang(l); });
+  b.addEventListener('click',function(){ setLang(l); });
+}
+bindLangBtn('langId','id'); bindLangBtn('langEn','en');
+bindLangBtn('langIdM','id'); bindLangBtn('langEnM','en');
+document.querySelectorAll('.tabBtn').forEach(function(b){
+  b.addEventListener('click',function(){activeModel=b.getAttribute('data-model');renderModel();});
+});
+
+/* FAQ single-open */
+function faqSet(item,open){
+  var a=item.querySelector('.faqA'), q=item.querySelector('.faqQ');
+  item.classList.toggle('open',open); q.setAttribute('aria-expanded',open?'true':'false');
+  a.style.maxHeight= open ? a.scrollHeight+'px' : '0px';
+}
+document.querySelectorAll('.faqItem').forEach(function(item){
+  item.querySelector('.faqQ').addEventListener('click',function(){
+    var wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faqItem.open').forEach(function(o){ if(o!==item) faqSet(o,false); });
+    faqSet(item,!wasOpen);
+  });
+});
+function faqInit(){
+  document.querySelectorAll('.faqItem').forEach(function(item){ faqSet(item,item.classList.contains('open')); });
+}
+
+/* Terminal auto-typing — token pertama (komentar) mengikuti bahasa aktif */
+function codeComment(){ return LANG==='en' ? '# paste your API key into ' : '# tempel API key kamu di '; }
+function codeGreeting(){ return LANG==='en' ? '"Hello!"' : '"Halo!"'; }
+function codeTokens(){
+  return [
+  {t:codeComment(),c:'tok-c'},
+  {t:'$KEY',c:'tok-var'},
+  {t:'\n',c:''},
+  {t:'curl',c:'tok-cmd'},
+  {t:' ',c:''},
+  {t:'https://api.mannnlabs.com/v1/chat/completions',c:'tok-url'},
+  {t:' \\\n  ',c:''},
+  {t:'-H',c:'tok-flag'},
+  {t:' ',c:''},
+  {t:'"',c:'tok-s'},
+  {t:'Content-Type:',c:'tok-key'},
+  {t:' application/json',c:'tok-str'},
+  {t:'"',c:'tok-s'},
+  {t:' \\\n  ',c:''},
+  {t:'-H',c:'tok-flag'},
+  {t:' ',c:''},
+  {t:'"',c:'tok-s'},
+  {t:'Authorization:',c:'tok-key'},
+  {t:' Bearer ',c:'tok-str'},
+  {t:'$KEY',c:'tok-var'},
+  {t:'"',c:'tok-s'},
+  {t:' \\\n  ',c:''},
+  {t:'-d',c:'tok-flag'},
+  {t:' ',c:''},
+  {t:'\'',c:'tok-s'},
+  {t:'{',c:''},
+  {t:'"model"',c:'tok-key'},
+  {t:': ',c:''},
+  {t:'"deepseek-chat"',c:'tok-str'},
+  {t:',',c:''},
+  {t:'\n       ',c:''},
+  {t:'"messages"',c:'tok-key'},
+  {t:': [{',c:''},
+  {t:'"role"',c:'tok-key'},
+  {t:': ',c:''},
+  {t:'"user"',c:'tok-str'},
+  {t:',',c:''},
+  {t:'\n       ',c:''},
+  {t:'"content"',c:'tok-key'},
+  {t:': ',c:''},
+  {t:codeGreeting(),c:'tok-str'},
+  {t:'}]}',c:''},
+  {t:'\'',c:'tok-s'}
+  ];
+}
+function fullCodeText(){
+  var s=''; codeTokens().forEach(function(tok){ s+=tok.t; }); return s;
+}
+var codePre=null, codeCursor=null, codeLang='id', codeTyped=0, codeTotal=0, codeTimer=null, codeDone=false;
+function renderCode(n){
+  if(!codePre) return;
+  var toks=codeTokens();
+  codePre.textContent='';
+  var remaining=n;
+  for(var i=0;i<toks.length&&remaining>0;i++){
+    var tok=toks[i];
+    var part=tok.t.slice(0,remaining);
+    remaining-=part.length;
+    if(!part) break;
+    if(tok.c){
+      var sp=document.createElement('span');
+      sp.className=tok.c; sp.textContent=part;
+      codePre.appendChild(sp);
+    }else{
+      codePre.appendChild(document.createTextNode(part));
+    }
+  }
+  if(codeCursor) codePre.appendChild(codeCursor);
+}
+function codeCharAt(pos){
+  var toks=codeTokens(), acc=0;
+  for(var i=0;i<toks.length;i++){
+    if(pos<acc+toks[i].t.length) return toks[i].t.charAt(pos-acc);
+    acc+=toks[i].t.length;
+  }
+  return '';
+}
+function startTyping(){
+  codePre=document.getElementById('codeBlock');
+  if(!codePre) return;
+  codeLang=LANG;
+  codeCursor=document.createElement('span');
+  codeCursor.className='typeCursor';
+  codeCursor.setAttribute('aria-hidden','true');
+  codeTotal=0;
+  codeTokens().forEach(function(tok){ codeTotal+=tok.t.length; });
+  if(reduceMotion){
+    /* Tampilkan kode lengkap langsung, tanpa animasi ketik */
+    codePre.appendChild(codeCursor);
+    codeDone=true;
+    return;
+  }
+  /* Cadangkan tinggi akhir terminal agar layout tidak bergeser saat mengetik */
+  var finalH=codePre.offsetHeight;
+  if(finalH>0) codePre.style.minHeight=finalH+'px';
+  renderCode(0);
+  function step(){
+    if(codeDone) return;
+    if(codeTyped>=codeTotal){ renderCode(codeTotal); codeDone=true; return; }
+    /* Ketik 1 huruf per langkah; jeda sedikit lebih lama di akhir baris */
+    var prevChar=codeTyped>0?codeCharAt(codeTyped-1):'';
+    codeTyped+=1;
+    renderCode(codeTyped);
+    var delay=14+Math.random()*22;
+    if(prevChar==='\n') delay=180;
+    else if(prevChar==='\\') delay=90;
+    codeTimer=setTimeout(step,delay);
+  }
+  codeTimer=setTimeout(step,400);
+}
+/* Saat bahasa diganti, hentikan animasi ketik dan tampilkan kode lengkap dalam bahasa baru */
+function syncCodeLang(){
+  if(codeLang===LANG) return;
+  codeLang=LANG;
+  if(!codePre) return;
+  if(codeTimer){ clearTimeout(codeTimer); codeTimer=null; }
+  /* Hitung ulang total dari token bahasa baru ("Hello!" 1 karakter lebih panjang dari "Halo!") */
+  codeTotal=0;
+  codeTokens().forEach(function(tok){ codeTotal+=tok.t.length; });
+  codeDone=true; codeTyped=codeTotal;
+  renderCode(codeTotal);
+}
+
+/* Copy code */
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var target=document.getElementById(btn.getAttribute('data-copy'));
+    if(!target) return;
+    var text=(target.id==='codeBlock') ? fullCodeText() : target.innerText;
+    function done(){
+      btn.classList.add('copied');
+      var lab=btn.querySelector('.copyLabel'); if(lab) lab.textContent=I18N[LANG].copied;
+      setTimeout(function(){ btn.classList.remove('copied'); var l=btn.querySelector('.copyLabel'); if(l) l.textContent=I18N[LANG].copyBtn; },1800);
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done).catch(done); }
+    else{
+      var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); }catch(e){}
+      document.body.removeChild(ta); done();
+    }
+  });
+});
+
+/* Header + mobile menu */
+var header=document.getElementById('siteHeader');
+window.addEventListener('scroll',function(){ header.classList.toggle('scrolled',window.scrollY>8); },{passive:true});
+var menuBtn=document.getElementById('menuBtn'), mobileMenu=document.getElementById('mobileMenu');
+menuBtn.addEventListener('click',function(){
+  var open=mobileMenu.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded',open?'true':'false');
+});
+mobileMenu.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click',function(){ mobileMenu.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); });
+});
+
+/* Reveal on scroll — dengan pengaman: konten selalu muncul walau observer gagal */
+if('IntersectionObserver' in window && !reduceMotion){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.05,rootMargin:'0px 0px 500px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  /* Pengaman: paksa tampil semua sisa elemen setelah 1 detik */
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); io.unobserve(el); });
+  },1000);
+}else{
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+}
+
+applyLang();
+faqInit();
+startTyping();
+window.addEventListener('resize',function(){
+  document.querySelectorAll('.faqItem.open .faqA').forEach(function(a){ a.style.maxHeight=a.scrollHeight+'px'; });
+});
+</script>
+</body>
+</html>
