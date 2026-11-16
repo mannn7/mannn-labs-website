@@ -1,1 +1,310 @@
-<!-- placeholder - replaced by upload -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<link rel="icon" href="data:,">
+<title>Mannn Labs AI — Beli API Key DeepSeek &amp; Claude</title>
+<meta name="description" content="Halaman penjualan Mannn Labs: API key DeepSeek dan Claude dengan format OpenAI, bayar via QRIS, harga terbuka sejak awal."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="cosmos"></div><div class="gridbg"></div><div class="stars"></div>
+
+<header id="siteHeader"><div class="wrap">
+  <div class="nav">
+    <div class="navLeft"><a class="backArrow" id="backArrow" href="https://mannnlabs.com" aria-label="Kembali ke mannnlabs.com" title="Kembali ke mannnlabs.com">←</a>
+    <a class="logo" id="logoLink" href="https://mannnlabs.com" aria-label="Mannn Labs AI — kembali ke halaman utama mannnlabs.com"><span>Mannn Labs<span class="logoSep">·</span><span class="logoAi">AI</span></span></a></div>
+    <nav class="navlinks" id="mainNav" aria-label="Utama">
+      <a href="#model" data-i18n="navModel">Model</a><a href="#harga" data-i18n="navHarga">Harga</a><a href="#order" data-i18n="navOrder">Cara Order</a><a href="#garansi" data-i18n="navGaransi">Garansi</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="navRight">
+      <div class="langToggle" role="group" aria-label="Language / Bahasa">
+        <button id="langId" class="active" type="button">ID</button><button id="langEn" type="button">EN</button>
+      </div>
+      <a class="btn btnPrimary navCta" href="#harga" style="padding:11px 18px" data-i18n="ctaBuy">Beli API Key</a>
+      <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="mobileMenu" id="mobileMenu" aria-label="Menu mobile">
+    <a href="#model" data-i18n="navModel">Model</a><a href="#harga" data-i18n="navHarga">Harga</a><a href="#order" data-i18n="navOrder">Cara Order</a><a href="#garansi" data-i18n="navGaransi">Garansi</a><a href="#faq">FAQ</a>
+    <div class="mobileLang"><span class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--muted2)">BAHASA / LANGUAGE</span><span class="langToggle" role="group" aria-label="Language / Bahasa"><button id="langIdM" class="active" type="button">ID</button><button id="langEnM" type="button">EN</button></span></div>
+  </nav>
+</div></header>
+
+<main id="top" class="wrap">
+  <!-- HERO PRODUK -->
+  <div class="hero">
+    <div class="reveal in">
+      <div class="eyebrow"><span data-i18n="heroEyebrow">INFRASTRUKTUR API AI — INDONESIA</span></div>
+      <h1><span data-i18n="heroH1a">Satu paket, satu API key.</span><br><span class="grad" data-i18n="heroH1b">Dua model, siap pakai.</span></h1>
+      <p class="lead"><span data-i18n="heroLeadA">Sambungkan model</span> <span class="chip">DeepSeek</span> <span data-i18n="heroLeadMid">dan</span> <span class="chip">Claude</span> <span data-i18n="heroLeadB">ke aplikasimu lewat API yang kompatibel dengan OpenAI. Konteks 128K untuk DeepSeek dan 200K untuk Claude, function calling siap jalan, dan skema harga jelas sejak awal — bayar, terima key, langsung pakai.</span></p>
+      <div class="heroCtas">
+        <a href="#harga" class="btn btnPrimary" data-i18n="heroCta1">Beli API Key</a>
+        <a href="#spesifikasi" class="btn btnGhost" data-i18n="heroCta2">Lihat Spesifikasi</a>
+      </div>
+    </div>
+    <div class="reveal in d1">
+      <div class="codeCard termCard">
+        <div class="codeHead">
+          <span class="dots"><span style="background:#2b3140"></span><span style="background:#2b3140"></span><span style="background:#2b3140"></span></span>
+          <b>terminal</b>
+          <button class="copyBtn" type="button" data-copy="codeBlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copyLabel" data-i18n="copyBtn">Salin Kode</span></button>
+        </div>
+        <div class="codeBody"><pre id="codeBlock"><span class="tok-c"># tempel API key kamu di </span><span class="tok-var">$KEY</span>
+<span class="tok-cmd">curl</span> <span class="tok-url">https://api.mannnlabs.com/v1/chat/completions</span> \
+  <span class="tok-flag">-H</span> <span class="tok-s">"</span><span class="tok-key">Content-Type:</span><span class="tok-str"> application/json</span><span class="tok-s">"</span> \
+  <span class="tok-flag">-H</span> <span class="tok-s">"</span><span class="tok-key">Authorization:</span><span class="tok-str"> Bearer </span><span class="tok-var">$KEY</span><span class="tok-s">"</span> \
+  <span class="tok-flag">-d</span> <span class="tok-s">'</span>{<span class="tok-key">"model"</span>: <span class="tok-str">"deepseek-chat"</span>,
+       <span class="tok-key">"messages"</span>: [{<span class="tok-key">"role"</span>: <span class="tok-str">"user"</span>,
+       <span class="tok-key">"content"</span>: <span class="tok-str">"Halo!"</span>}]}<span class="tok-s">'</span></pre></div>
+        <div class="termFoot" data-i18n="termCaption">Arahkan base URL OpenAI kamu ke sini dan sesuaikan nama modelnya — sisanya tetap.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRIP SPESIFIKASI -->
+  <div class="specStrip reveal in" id="spesifikasi">
+    <div class="specCell"><span>MODEL</span><b>DeepSeek + Claude</b><small data-i18n="stripModelSub">dua model, satu format API</small></div>
+    <div class="specCell"><span>CONTEXT</span><b>128K · 200K</b><small data-i18n="stripCtxSub">DeepSeek 128K · Claude 200K</small></div>
+    <div class="specCell"><span>INTERFACE</span><b>OpenAI</b><small data-i18n="stripIfaceSub">/v1 · function calling</small></div>
+    <div class="specCell"><span data-i18n="stripValidL">MASA AKTIF</span><b data-i18n="stripValidV">7 hari</b><small data-i18n="stripFairSub">per API key</small></div>
+  </div>
+
+  <!-- SPESIFIKASI MODEL -->
+  <section id="model">
+    <div class="secHead reveal"><div><div class="secLabel" data-i18n="modelLabel">01 / Spesifikasi Model</div><h2 data-i18n="modelH2">Kenali dulu sebelum membeli.</h2></div><p class="secDesc" data-i18n="modelDesc">Dua model ini karakternya berbeda, tapi cara pakainya sama persis: satu format request OpenAI-compatible, tinggal ganti nama modelnya saja. Tiap paket dapat API key-nya sendiri.</p></div>
+    <div class="tabs" role="tablist">
+      <button class="tabBtn active" type="button" data-model="deepseek" role="tab" aria-selected="true">DeepSeek — <span data-i18n="tabDeepSeek">Gesit &amp; Irit</span></button>
+      <button class="tabBtn" type="button" data-model="claude" role="tab" aria-selected="false">Claude — <span data-i18n="tabClaude">Lebih Cermat</span></button>
+    </div>
+    <div class="card reveal" id="modelCard">
+      <h3 id="modelTitle">DeepSeek</h3>
+      <p id="modelDesc">Model open-weight dari DeepSeek: kuat di penalaran dan coding, tapi tetap irit biaya. Enak diajak ngobrol, membantu menulis kode, dan menyelesaikan tugas harian — nyaman dipakai dalam Bahasa Indonesia maupun Inggris.</p>
+      <div class="modelMeta">
+        <span class="tag" id="modelTag">OPEN-WEIGHT — DARI DEEPSEEK</span>
+        <span class="tag tagCyan" id="modelId">model: deepseek-chat</span>
+      </div>
+      <div class="specGrid">
+        <div class="spec"><span data-i18n="specCtxL">Konteks</span><b id="specCtx">128K token</b></div>
+        <div class="spec"><span data-i18n="specPriceL">Tarif</span><b id="specPrice" style="color:var(--cyan2)">Rp50.000 / minggu per API key</b></div>
+        <div class="spec"><span data-i18n="specSpeedL">Kecepatan</span><b id="specSpeed">Sangat Gesit</b></div>
+        <div class="spec"><span data-i18n="specBestL">Cocok Untuk</span><b id="specBest" style="font-size:15px">Obrolan, Kode, Bot</b></div>
+        <div class="spec"><span data-i18n="specFmtL">Format API</span><b style="font-size:15px">OpenAI-compatible</b></div>
+        <div class="spec"><span data-i18n="specStreamL">Streaming</span><b id="specStream" style="font-size:15px">Didukung</b></div>
+      </div>
+      <div class="modelCols">
+        <div class="modelCol">
+          <h4 data-i18n="capLabel">Kemampuan</h4>
+          <ul class="feat" id="capList"></ul>
+        </div>
+        <div class="modelCol">
+          <h4 data-i18n="useLabel">Kegunaan</h4>
+          <ul class="useList" id="useList"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HARGA -->
+  <section id="harga">
+    <div class="secHead reveal">
+      <div><div class="secLabel" data-i18n="hargaLabel">02 / Harga</div><h2 data-i18n="hargaH2">Harga yang bisa kamu hitung sendiri.</h2></div><p class="secDesc" data-i18n="hargaDesc">Harga dipisah per model — DeepSeek satu paket mingguan dengan batas fair-use per menit, Claude paket 7 hari dengan jatah token.</p>
+    </div>
+
+    <div class="priceGroup reveal">
+      <div class="priceGroupHead">
+        <div><h3>DeepSeek</h3><p data-i18n="dsGroupSub">Satu paket. Udah.</p></div>
+        <span class="priceGroupTag" data-i18n="dsGroupTag">BATAS FAIR-USE JELAS</span>
+      </div>
+      <div class="priceGrid deepseekGrid">
+        <article class="priceCard">
+          <span class="tag" data-i18n="dsTag">BATCH PERCOBAAN</span>
+          <div class="price" data-i18n="dsPrice">Rp50.000</div>
+          <span class="perLabel" data-i18n="dsPer">/ minggu / API key</span>
+          <ul class="feat">
+            <li data-i18n="dsF1">Model DeepSeek — context 128K token per request</li>
+            <li data-i18n="dsF2">OpenAI-compatible /v1 · function calling</li>
+            <li data-i18n="dsF3">Batas pemakaian wajar (fair-use): 120 request/menit · 100rb token/menit · 5 request paralel</li>
+            <li data-i18n="dsF4">Batas per menit ini menjaga layanan tetap stabil dan adil untuk semua pengguna</li>
+            <li data-i18n="dsF5">Masa berlaku 1 minggu per API key</li>
+            <li data-i18n="dsF6">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran</li>
+          </ul>
+          <a href="#order" class="btn btnPrimary" style="width:100%;margin-top:20px" data-i18n="dsCta">Ambil Batch Percobaan</a>
+        </article>
+      </div>
+    </div>
+
+    <div class="priceGroup reveal">
+      <div class="priceGroupHead">
+        <div><h3>Claude</h3><p data-i18n="clGroupSub">Paket 7 hari, hangus, tanpa rollover.</p></div>
+        <span class="priceGroupTag" data-i18n="clGroupTag">SATU PAKET = SATU KEY</span>
+      </div>
+      <div class="priceGrid">
+        <article class="priceCard">
+          <span class="tag" data-i18n="cl1Tag">SANTAI</span>
+          <div class="price" data-i18n="cl1Price">Rp25.000</div>
+          <span class="perLabel" data-i18n="clPer">/ 7 hari</span>
+          <ul class="feat">
+            <li>Claude Haiku 5.5</li>
+            <li data-i18n="cl1F2">± 2 juta token Haiku</li>
+            <li data-i18n="clFKey">1 API key · 1 jatah token</li>
+            <li data-i18n="clRefund">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran</li>
+            <li data-i18n="clF7">Sisa token hangus di akhir hari ke-7 — tanpa rollover</li>
+          </ul>
+          <a href="#order" class="btn btnGhost" style="width:100%;margin-top:20px" data-i18n="cl1Cta">Ambil Santai</a>
+        </article>
+        <article class="priceCard pop">
+          <span class="tag" data-i18n="cl2Tag">REGULER</span>
+          <div class="price" data-i18n="cl2Price">Rp50.000</div>
+          <span class="perLabel" data-i18n="clPer">/ 7 hari</span>
+          <ul class="feat">
+            <li>Claude Haiku 5.5</li>
+            <li data-i18n="cl2F2">± 5 juta token Haiku</li>
+            <li data-i18n="clFKey">1 API key · 1 jatah token</li>
+            <li data-i18n="clRefund">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran</li>
+            <li data-i18n="clF7">Sisa token hangus di akhir hari ke-7 — tanpa rollover</li>
+          </ul>
+          <a href="#order" class="btn btnPrimary" style="width:100%;margin-top:20px" data-i18n="cl2Cta">Pilih Reguler</a>
+        </article>
+        <article class="priceCard">
+          <span class="tag tagCyan" data-i18n="cl3Tag">POWER</span>
+          <div class="price" data-i18n="cl3Price">Rp99.000</div>
+          <span class="perLabel" data-i18n="clPer">/ 7 hari</span>
+          <ul class="feat">
+            <li>Claude Sonnet 5.5</li>
+            <li data-i18n="cl3F2">± 500 ribu token Sonnet</li>
+            <li data-i18n="clFKey">1 API key · 1 jatah token</li>
+            <li data-i18n="clRefund">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran</li>
+            <li data-i18n="clF7">Sisa token hangus di akhir hari ke-7 — tanpa rollover</li>
+          </ul>
+          <a href="#order" class="btn btnGhost" style="width:100%;margin-top:20px" data-i18n="cl3Cta">Ambil Power</a>
+        </article>
+      </div>
+      <div class="ruleBox"><b data-i18n="clRuleB">Aturan paket Claude:</b> <span data-i18n="clRule">satu paket = satu key, satu jatah token. Kalau jatah token habis sebelum 7 hari, key berhenti; kalau waktu habis duluan, sisa token hangus — tanpa rollover.</span></div>
+    </div>
+
+    <p class="priceNoteLine reveal" data-i18n="priceFoot">Harga per paket 7 hari (bukan per token): tiap paket punya jatah tokennya sendiri — Santai ±2 juta token Haiku, Reguler ±5 juta token Haiku, Power ±500 ribu token Sonnet.</p>
+  </section>
+
+  <!-- CARA ORDER -->
+  <section id="order">
+    <div class="secHead reveal"><div><div class="secLabel" data-i18n="orderLabel">03 / Cara Order</div><h2 data-i18n="orderH2">Dari klik sampai key aktif, tiga langkah saja.</h2></div></div>
+    <div class="steps">
+      <article class="step reveal">
+        <div class="stepNum"><b>1</b><span data-i18n="step1k">PILIH PAKET</span></div>
+        <h3 data-i18n="step1h">Tentukan paket, lalu sapa kami</h3>
+        <p><span data-i18n="step1p">Klik tombol beli pada paket yang kamu mau, atau kirim email ke</span> <a href="mailto:founder@mannnlabs.com?subject=Pesan%20API%20Mannn%20Labs">founder@mannnlabs.com</a> <span data-i18n="step1p2">dengan menyebut nama paketnya. Kami balas dengan rincian pembayaran.</span></p>
+      </article>
+      <article class="step reveal d1">
+        <div class="stepNum"><b>2</b><span data-i18n="step2k">BAYAR</span></div>
+        <h3 data-i18n="step2h">Selesaikan pembayaran lokal</h3>
+        <p data-i18n="step2p">Bayar lewat QRIS, Virtual Account, atau e-wallet — pilih yang paling gampang buatmu. Simpan buktinya, lalu kirimkan ke kami sebagai konfirmasi.</p>
+      </article>
+      <article class="step reveal d2">
+        <div class="stepNum"><b>3</b><span data-i18n="step3k">TERIMA KEY</span></div>
+        <h3 data-i18n="step3h">API key meluncur ke emailmu</h3>
+        <p data-i18n="step3p">Begitu pembayaran terkonfirmasi, API key dan panduan singkat pemakaiannya kami kirim ke email kamu. Tinggal tempel ke aplikasi, dan model siap bekerja.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- GARANSI & PRIVASI -->
+  <section id="garansi">
+    <div class="secHead reveal"><div><div class="secLabel" data-i18n="garLabel">04 / Garansi &amp; Privasi</div><h2 data-i18n="garH2">Uangmu aman, datamu lebih aman lagi.</h2></div></div>
+    <div class="split">
+      <article class="card reveal">
+        <span class="tag" data-i18n="garTag">GARANSI PEMBELIAN</span>
+        <h3 style="margin-top:14px" data-i18n="garCardH">Garansi pembelian yang jelas</h3>
+        <div class="shieldRow">
+          <span class="shieldIco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <div><h4 data-i18n="g1h">Key tidak bisa dipakai? Kami bantu perbaiki atau ganti key baru — refund 100% tetap terjamin</h4><p data-i18n="g1p">Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran. Aturan ini berlaku untuk semua paket — DeepSeek maupun Claude — ajukan lewat email ke founder@mannnlabs.com.</p></div>
+        </div>
+        <div class="shieldRow">
+          <span class="shieldIco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.8 12.2 9.2-9.2M15 5l3 3M19 2l3 3"/></svg></span>
+          <div><h4 data-i18n="g2h">Semua paket, satu aturan garansi</h4><p data-i18n="g2p">DeepSeek maupun Claude, aturannya sama: kami bantu perbaiki atau ganti key baru dulu, dan kalau key tetap tidak bisa dipakai karena kesalahan dari sisi kami, refund 100% adalah hasil yang dijamin — kamu tidak dibiarkan menggantung.</p></div>
+        </div>
+        <div class="shieldRow">
+          <span class="shieldIco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg></span>
+          <div><h4 data-i18n="g3h">Dibantu manusia, bukan templat</h4><p id="g3p">Kendala saat pemasangan atau pemakaian dibantu langsung lewat email, oleh orang yang memang membangun layanan ini.</p></div>
+        </div>
+      </article>
+      <article class="card reveal d1">
+        <span class="tag tagCyan" data-i18n="privTag">PRIVASI PENGGUNA</span>
+        <h3 style="margin-top:14px" data-i18n="privCardH">Prompt &amp; data diproses secara transparan</h3>
+        <div class="shieldRow">
+          <span class="shieldIco cy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          <div><h4 data-i18n="pv1h">Prompt diteruskan ke penyedia model</h4><p data-i18n="pv1p">Agar permintaanmu bisa dijawab, prompt diteruskan ke penyedia model (DeepSeek / Anthropic) yang kamu gunakan. Pembayaran diproses oleh pihak ketiga melalui QRIS, Virtual Account, atau e-wallet. Kami tidak menjual datamu untuk iklan, dan kami tidak memakai promptmu untuk melatih model.</p></div>
+        </div>
+        <div class="shieldRow">
+          <span class="shieldIco cy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/><path d="m4 4 16 16"/></svg></span>
+          <div><h4 data-i18n="pv2h">Log seperlunya saja</h4><p data-i18n="pv2p">Sistem hanya mencatat log sebatas kebutuhan tagihan dan keamanan — berapa token terpakai dan kapan — bukan untuk mengintip isi percakapanmu.</p></div>
+        </div>
+        <div class="shieldRow">
+          <span class="shieldIco cy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.8 12.2 9.2-9.2M15 5l3 3M19 2l3 3"/></svg></span>
+          <div><h4 data-i18n="pv3h">Key-mu, kendalimu</h4><p data-i18n="pv3p">Jaga API key seperti menjaga kata sandi. Merasa key-mu bocor? Minta cabut dan ganti baru kapan saja lewat email, tanpa biaya tambahan.</p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="secHead reveal"><div><div class="secLabel" data-i18n="faqLabel">05 / FAQ</div><h2 data-i18n="faqH2">Sebelum checkout, cek ini dulu</h2></div></div>
+    <div class="faqList reveal">
+      <div class="faqItem open">
+        <button class="faqQ" type="button" aria-expanded="true"><span data-i18n="q1">Bedanya paket DeepSeek dan Claude apa?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a1">DeepSeek cuma punya satu paket: Batch Percobaan Rp50.000 per minggu per API key, dengan batas pemakaian wajar (fair-use) 120 request/menit, 100rb token/menit, dan 5 request paralel — batas per menit ini menjaga layanan tetap stabil untuk semua pengguna. Claude dijual per paket 7 hari dengan jatah token: Santai Rp25.000 (± 2 juta token Haiku 5.5), Reguler Rp50.000 (± 5 juta token Haiku 5.5), dan Power Rp99.000 (± 500 ribu token Sonnet 5.5). Aturan refund yang sama berlaku untuk semua paket.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q2">Bayar dan terima key-nya lewat apa?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a2">Pembayaran per paket, lewat QRIS, Virtual Account, maupun e-wallet. Pesan dulu lewat email ke founder@mannnlabs.com, bayar paket yang kamu pilih, begitu pembayaran terkonfirmasi API key langsung dikirim ke email kamu. Satu paket berlaku 1 minggu (DeepSeek) atau 7 hari (Claude), lalu hangus.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q3">Satu paket dapat berapa API key?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a3">Satu paket = satu API key dengan jatahnya sendiri. Key DeepSeek berlaku untuk model DeepSeek, key Claude untuk model Claude di paketnya — kalau butuh dua model, ambil dua paket.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q4">Aplikasiku sekarang jalan di OpenAI. Susah tidak pindahnya?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a4">Tidak. API kami mengikuti format OpenAI, jadi umumnya kamu cukup mengganti base_url ke api.mannnlabs.com dan nama model ke model yang kamu beli, lalu memakai API key dari kami. Library OpenAI untuk Python dan JavaScript bisa langsung dipakai.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q5">Masa berlakunya berapa lama?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a5">Paket DeepSeek berlaku 1 minggu per API key. Paket Claude berlaku 7 hari: kalau jatah token habis sebelum 7 hari, key berhenti; kalau waktu habis duluan, sisa token hangus — tanpa rollover ke paket berikutnya.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q6">Bisa refund kalau ternyata tidak cocok?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a6">Bisa, dengan satu aturan yang sama untuk semua paket: Refund 100% kalau API key tidak bisa dipakai karena kesalahan dari sisi kami, diajukan maksimal 7 hari setelah pembayaran. Kalau key bermasalah, kami bantu perbaiki atau ganti key baru dulu — dan kalau tetap tidak bisa dipakai karena kesalahan dari sisi kami, refund 100% adalah hasil yang dijamin. Ajukan lewat email ke founder@mannnlabs.com.</p></div>
+      </div>
+      <div class="faqItem">
+        <button class="faqQ" type="button" aria-expanded="false"><span data-i18n="q7">Apakah Mannn Labs resmi dari DeepSeek atau Anthropic?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="faqA"><p data-i18n="a7">Tidak. Mannn Labs adalah penyedia akses API independen — kami bukan afiliasi resmi, anak perusahaan, maupun perwakilan resmi DeepSeek dan Anthropic (pembuat Claude). Kami menyediakan akses ke model-model tersebut, dengan API key, paket, dan dukungan yang kami kelola sendiri. Nama DeepSeek dan Claude di halaman ini hanya merujuk pada model yang kami sediakan aksesnya.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BELI -->
+  <section id="beli" style="padding-bottom:24px">
+    <div class="buyWrap reveal">
+      <div class="buyLabel">06 — <span data-i18n="buyLabel">Mulai Sekarang</span></div>
+      <div class="buyCard">
+        <h2><span data-i18n="buyH2a">Key pertamamu cuma</span><br><span class="accent" data-i18n="buyH2b">berjarak satu email.</span></h2>
+        <p data-i18n="buyP">Sebutkan paket yang kamu mau — Batch Percobaan untuk DeepSeek, atau paket Santai, Reguler, atau Power untuk Claude — dan kami balas dengan rincian pembayarannya. Tanpa daftar berbelit, tanpa kartu kredit.</p>
+        <div class="buyBtns">
+          <a class="buyBtn" href="mailto:founder@mannnlabs.com?subject=Pesan%20API%20Mannn%20Labs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 6 9 7 9-7"/></svg>founder@mannnlabs.com</a>
+          <a class="buyGhost" href="#harga" data-i18n="buyGhost">Bandingkan Paket Dulu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footRow"><span data-i18n="footL">© 2026 PT Mannn Labs (PT Perorangan) • Halaman penjualan di ai.mannnlabs.com.</span><span><a href="https://mannnlabs.com" data-i18n="footBack">← Kembali ke mannnlabs.com — Profil Perusahaan</a> • <a href="mailto:founder@mannnlabs.com">founder@mannnlabs.com</a></span></div></footer>
+
+<script src="script.js"></script>
+</body>
+</html>
